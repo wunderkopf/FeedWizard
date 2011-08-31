@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9C03CC4140E6E4700B828EB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C03CC3140E6E4700B828EB /* Cocoa.framework */; };
+		D9C03CCE140E6E4700B828EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CCC140E6E4700B828EB /* InfoPlist.strings */; };
+		D9C03CD0140E6E4700B828EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CCF140E6E4700B828EB /* main.m */; };
+		D9C03CD4140E6E4700B828EB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CD2140E6E4700B828EB /* Credits.rtf */; };
+		D9C03CD7140E6E4700B828EB /* FeedWizardAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CD6140E6E4700B828EB /* FeedWizardAppDelegate.m */; };
+		D9C03CDA140E6E4700B828EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CD8140E6E4700B828EB /* MainMenu.xib */; };
+		D9C03CDD140E6E4700B828EB /* FeedWizard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CDB140E6E4700B828EB /* FeedWizard.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D9C03CBF140E6E4700B828EB /* FeedWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C03CC3140E6E4700B828EB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D9C03CC6140E6E4700B828EB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D9C03CC7140E6E4700B828EB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D9C03CC8140E6E4700B828EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D9C03CCB140E6E4700B828EB /* FeedWizard-Info.plist */ = {isa = PBXFileReference; path = "FeedWizard-Info.plist"; sourceTree = "<group>"; };
+		D9C03CCD140E6E4700B828EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9C03CCF140E6E4700B828EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D9C03CD1140E6E4700B828EB /* FeedWizard-Prefix.pch */ = {isa = PBXFileReference; path = "FeedWizard-Prefix.pch"; sourceTree = "<group>"; };
+		D9C03CD3140E6E4700B828EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D9C03CD5140E6E4700B828EB /* FeedWizardAppDelegate.h */ = {isa = PBXFileReference; path = FeedWizardAppDelegate.h; sourceTree = "<group>"; };
+		D9C03CD6140E6E4700B828EB /* FeedWizardAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedWizardAppDelegate.m; sourceTree = "<group>"; };
+		D9C03CD9140E6E4700B828EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D9C03CDC140E6E4700B828EB /* FeedWizard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedWizard.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9C03CBC140E6E4700B828EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9C03CC4140E6E4700B828EB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9C03CB4140E6E4600B828EB = {
+			isa = PBXGroup;
+			children = (
+				D9C03CC9140E6E4700B828EB /* FeedWizard */,
+				D9C03CC2140E6E4700B828EB /* Frameworks */,
+				D9C03CC0140E6E4700B828EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9C03CC0140E6E4700B828EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9C03CBF140E6E4700B828EB /* FeedWizard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9C03CC2140E6E4700B828EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9C03CC3140E6E4700B828EB /* Cocoa.framework */,
+				D9C03CC5140E6E4700B828EB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9C03CC5140E6E4700B828EB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9C03CC6140E6E4700B828EB /* AppKit.framework */,
+				D9C03CC7140E6E4700B828EB /* CoreData.framework */,
+				D9C03CC8140E6E4700B828EB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D9C03CC9140E6E4700B828EB /* FeedWizard */ = {
+			isa = PBXGroup;
+			children = (
+				D9C03CD5140E6E4700B828EB /* FeedWizardAppDelegate.h */,
+				D9C03CD6140E6E4700B828EB /* FeedWizardAppDelegate.m */,
+				D9C03CD8140E6E4700B828EB /* MainMenu.xib */,
+				D9C03CDB140E6E4700B828EB /* FeedWizard.xcdatamodeld */,
+				D9C03CCA140E6E4700B828EB /* Supporting Files */,
+			);
+			path = FeedWizard;
+			sourceTree = "<group>";
+		};
+		D9C03CCA140E6E4700B828EB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9C03CCB140E6E4700B828EB /* FeedWizard-Info.plist */,
+				D9C03CCC140E6E4700B828EB /* InfoPlist.strings */,
+				D9C03CCF140E6E4700B828EB /* main.m */,
+				D9C03CD1140E6E4700B828EB /* FeedWizard-Prefix.pch */,
+				D9C03CD2140E6E4700B828EB /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9C03CBE140E6E4700B828EB /* FeedWizard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9C03CE0140E6E4700B828EB /* Build configuration list for PBXNativeTarget "FeedWizard" */;
+			buildPhases = (
+				D9C03CBB140E6E4700B828EB /* Sources */,
+				D9C03CBC140E6E4700B828EB /* Frameworks */,
+				D9C03CBD140E6E4700B828EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeedWizard;
+			productName = FeedWizard;
+			productReference = D9C03CBF140E6E4700B828EB /* FeedWizard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9C03CB6140E6E4600B828EB /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = D9C03CB9140E6E4600B828EB /* Build configuration list for PBXProject "FeedWizard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D9C03CB4140E6E4600B828EB;
+			productRefGroup = D9C03CC0140E6E4700B828EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9C03CBE140E6E4700B828EB /* FeedWizard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9C03CBD140E6E4700B828EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9C03CCE140E6E4700B828EB /* InfoPlist.strings in Resources */,
+				D9C03CD4140E6E4700B828EB /* Credits.rtf in Resources */,
+				D9C03CDA140E6E4700B828EB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9C03CBB140E6E4700B828EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9C03CD0140E6E4700B828EB /* main.m in Sources */,
+				D9C03CD7140E6E4700B828EB /* FeedWizardAppDelegate.m in Sources */,
+				D9C03CDD140E6E4700B828EB /* FeedWizard.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D9C03CCC140E6E4700B828EB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9C03CCD140E6E4700B828EB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D9C03CD2140E6E4700B828EB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9C03CD3140E6E4700B828EB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D9C03CD8140E6E4700B828EB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9C03CD9140E6E4700B828EB /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9C03CDE140E6E4700B828EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D9C03CDF140E6E4700B828EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D9C03CE1140E6E4700B828EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FeedWizard/FeedWizard-Prefix.pch";
+				INFOPLIST_FILE = "FeedWizard/FeedWizard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D9C03CE2140E6E4700B828EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FeedWizard/FeedWizard-Prefix.pch";
+				INFOPLIST_FILE = "FeedWizard/FeedWizard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9C03CB9140E6E4600B828EB /* Build configuration list for PBXProject "FeedWizard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9C03CDE140E6E4700B828EB /* Debug */,
+				D9C03CDF140E6E4700B828EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9C03CE0140E6E4700B828EB /* Build configuration list for PBXNativeTarget "FeedWizard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9C03CE1140E6E4700B828EB /* Debug */,
+				D9C03CE2140E6E4700B828EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9C03CDB140E6E4700B828EB /* FeedWizard.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9C03CDC140E6E4700B828EB /* FeedWizard.xcdatamodel */,
+			);
+			currentVersion = D9C03CDC140E6E4700B828EB /* FeedWizard.xcdatamodel */;
+			path = FeedWizard.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D9C03CB6140E6E4600B828EB /* Project object */;
+}
