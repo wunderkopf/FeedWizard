@@ -35,10 +35,11 @@ NSString * const ReloadDataNotification = @"ReloadDataNotification";
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender 
 {
-    if ([[FWStorage sharedStorage] close])
+    /*if ([[FWStorage sharedStorage] close])
         return NSTerminateNow;
     else
-        return NSTerminateCancel;
+        return NSTerminateCancel;*/
+    return NSTerminateNow;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
