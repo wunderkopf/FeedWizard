@@ -44,8 +44,8 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 240}, {480, 270}}</string>
-				<int key="NSWTFlags">544735232</int>
-				<string key="NSWindowTitle">Window</string>
+				<int key="NSWTFlags">544736256</int>
+				<string key="NSWindowTitle">Login Window</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
