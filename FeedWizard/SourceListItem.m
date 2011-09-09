@@ -15,7 +15,7 @@
 @synthesize icon = _icon;
 @synthesize badge = _badge;
 @synthesize children = _children;
-@synthesize items;
+@synthesize items = _items;
 
 - (id)init
 {
@@ -25,6 +25,7 @@
     {
 		_badge = -1;
         _children = [NSMutableArray array];
+        _items = [NSMutableArray array];
 	}
 	
 	return self;
@@ -62,9 +63,9 @@
 	return _icon != nil;
 }
 
-- (NSArray *)items
+/*- (NSArray *)items
 {
     return [NSArray array];
-}
+}*/
 
 @end

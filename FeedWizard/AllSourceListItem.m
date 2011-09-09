@@ -7,6 +7,8 @@
 //
 
 #import "AllSourceListItem.h"
+#import "FeedSourceListItem.h"
+#import "Entry.h"
 
 @implementation AllSourceListItem
 
@@ -16,11 +18,21 @@
     NSArray *feeds = [client feeds];
     __block NSInteger unreadCount = 0;
     
-    [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) 
-     {
-         PSFeed *feed = item;
-         unreadCount += feed.unreadCount;
-     }];
+    [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+        PSFeed *feed = item;
+        //FeedSourceListItem *feedItem = [FeedSourceListItem itemWithFeed:feed];
+        //[_items addObject:feedItem];
+        unreadCount += feed.unreadCount;
+        
+        __block NSMutableArray *entries = [NSMutableArray array];
+        
+        [feed.entries enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+            Entry *entry = [Entry itemWithEntry:item];
+            [entries addObject:entry];
+        }];
+        
+        [_items addObjectsFromArray:entries];
+    }];
     
     self.badge = unreadCount;
 }

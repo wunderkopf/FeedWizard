@@ -14,6 +14,7 @@
 	NSImage *_icon;
 	NSInteger _badge;
 	NSMutableArray *_children;
+    NSMutableArray *_items;
 }
 
 @property (nonatomic, assign) NSString *title;
