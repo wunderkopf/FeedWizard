@@ -13,6 +13,7 @@
 #import "FeedSourceListItem.h"
 //#import "LoginWindowController.h"
 #import "SubscribeWindowController.h"
+#import "INAppStoreWindow.h"
 
 NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
@@ -75,6 +76,9 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
 - (void)showWindow:(id)sender
 {
+    INAppStoreWindow *window = (INAppStoreWindow *)self.window;
+    window.titleBarHeight = 40.0;
+    
     [super showWindow:sender];
     
     //[_loginWindowController doShowSheet:sender];
