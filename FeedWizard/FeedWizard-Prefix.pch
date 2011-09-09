@@ -3,5 +3,15 @@
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
+
+#import <Cocoa/Cocoa.h>
+//#import <Foundation/Foundation.h>
+#import <PubSub/PubSub.h>
+#import "NSArray+Extensions.h"
+
+extern NSString * const kUserAgentValue;
+
+// Notifications
+extern NSString * const FeedDidEndRefreshNotification;
+extern NSString * const ReloadDataNotification;
 #endif
