@@ -256,6 +256,13 @@
 			name = "Subscribe Window";
 			sourceTree = "<group>";
 		};
+		D9B5D660141A34E200E57378 /* Feed Settings Window */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Feed Settings Window";
+			sourceTree = "<group>";
+		};
 		D9C03CB4140E6E4600B828EB = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +305,7 @@
 		D9C03CC9140E6E4700B828EB /* FeedWizard */ = {
 			isa = PBXGroup;
 			children = (
+				D9B5D660141A34E200E57378 /* Feed Settings Window */,
 				D9A9FA061419F8C30096951F /* Subscribe Window */,
 				D983738714174DCA00321CA9 /* Feed Controller */,
 				D99BE4BC140FB7A00016120F /* Google Reader */,

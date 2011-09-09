@@ -8,6 +8,7 @@
 
 #import "MainWindowController.h"
 #import "SourceListItem.h"
+#import "FeedSourceListItem.h"
 
 @implementation MainWindowController (PXSourceListDataSource)
 
@@ -64,15 +65,13 @@
 
 - (NSMenu*)sourceList:(PXSourceList *)aSourceList menuForEvent:(NSEvent *)theEvent item:(id)item
 {
-	if ([theEvent type] == NSRightMouseDown || ([theEvent type] == NSLeftMouseDown && ([theEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask)) {
-		NSMenu *menu = [[NSMenu alloc] init];
-		if (item != nil)
-			[menu addItemWithTitle:[item title] action:nil keyEquivalent:@""];
-		else
-			[menu addItemWithTitle:@"clicked outside" action:nil keyEquivalent:@""];
-        
-		return menu;
+	if ([theEvent type] == NSRightMouseDown || 
+        ([theEvent type] == NSLeftMouseDown && ([theEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask)) 
+    {
+        if ([item isKindOfClass:[FeedSourceListItem class]])
+            return _feedMenu;
 	}
+    
 	return nil;
 }
 

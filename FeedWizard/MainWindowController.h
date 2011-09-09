@@ -28,6 +28,7 @@
     NSScrollView *_entriesScrollView;
     NSScrollView *_navigationScrollView;
     SubscribeWindowController *_subscribeWindowController;
+    NSMenu *_feedMenu;
 }
 
 @property (assign) IBOutlet NSSplitView *mainSplitView;
@@ -38,8 +39,13 @@
 @property (assign) IBOutlet NSTableView *entriesTableView;
 @property (assign) IBOutlet NSScrollView *entriesScrollView;
 @property (assign) IBOutlet NSScrollView *navigationScrollView;
+@property (assign) IBOutlet NSMenu *feedMenu;
 
 - (IBAction)doSomething:(id)sender;
 - (IBAction)doSubscribe:(id)sender;
+- (IBAction)doUnsubscribe:(id)sender;
+- (IBAction)doFeedSettings:(id)sender;
+- (IBAction)doOpenFeedHome:(id)sender;
+- (IBAction)doOpenFeedHomeInBrowser:(id)sender;
 
 @end

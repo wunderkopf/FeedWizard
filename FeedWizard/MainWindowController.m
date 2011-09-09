@@ -10,6 +10,7 @@
 #import "SourceListItem.h"
 #import "StuffSourceListItem.h"
 #import "FeedsSourceListItem.h"
+#import "FeedSourceListItem.h"
 //#import "LoginWindowController.h"
 #import "SubscribeWindowController.h"
 
@@ -25,6 +26,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 @synthesize entriesTableView = _entriesTableView;
 @synthesize entriesScrollView = _entriesScrollView;
 @synthesize navigationScrollView = _navigationScrollView;
+@synthesize feedMenu = _feedMenu;
 
 - (id)init
 {
@@ -119,6 +121,50 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 - (IBAction)doSubscribe:(id)sender
 {
     [_subscribeWindowController doShowSheet:sender];
+}
+
+- (IBAction)doUnsubscribe:(id)sender
+{
+    NSAssert([_currentItem isKindOfClass:[FeedSourceListItem class]], 
+             @"Current item should always be FeedSourceListItem type.");
+
+    PSClient *client = [PSClient applicationClient];
+    FeedSourceListItem *feed = _currentItem;
+    
+    if (![client removeFeed:feed.feed])
+        NSLog(@"Can not unsubscribe feed");
+}
+
+- (IBAction)doFeedSettings:(id)sender
+{
+    
+}
+
+- (IBAction)doOpenFeedHome:(id)sender
+{
+    NSAssert([_currentItem isKindOfClass:[FeedSourceListItem class]], 
+             @"Current item should always be FeedSourceListItem type.");
+    
+    FeedSourceListItem *feed = _currentItem;
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+	[request setURL:feed.feed.alternateURL];
+	[request setHTTPMethod:@"GET"];
+	[request setHTTPShouldHandleCookies:NO];
+	[request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
+	[request addValue:kUserAgentValue forHTTPHeaderField:@"User-Agent"];
+    
+    [[_webView mainFrame] loadRequest:request];
+}
+
+- (IBAction)doOpenFeedHomeInBrowser:(id)sender
+{
+    NSAssert([_currentItem isKindOfClass:[FeedSourceListItem class]], 
+             @"Current item should always be FeedSourceListItem type.");
+    
+    FeedSourceListItem *feed = _currentItem;
+    
+    [[NSWorkspace sharedWorkspace] openURL:feed.feed.alternateURL];
 }
 
 @end
