@@ -86,7 +86,7 @@
 		D983738D1417519500321CA9 /* StuffSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StuffSourceListItem.m; path = FeedWizard/StuffSourceListItem.m; sourceTree = SOURCE_ROOT; };
 		D983738F1417567100321CA9 /* FeedsSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedsSourceListItem.h; path = FeedWizard/FeedsSourceListItem.h; sourceTree = SOURCE_ROOT; };
 		D98373901417567100321CA9 /* FeedsSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedsSourceListItem.m; path = FeedWizard/FeedsSourceListItem.m; sourceTree = SOURCE_ROOT; };
-		D98373921417578500321CA9 /* FeedSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = FeedSourceListItem.h; path = FeedWizard/FeedSourceListItem.h; sourceTree = SOURCE_ROOT; };
+		D98373921417578500321CA9 /* FeedSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedSourceListItem.h; path = FeedWizard/FeedSourceListItem.h; sourceTree = SOURCE_ROOT; };
 		D98373931417578600321CA9 /* FeedSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceListItem.m; path = FeedWizard/FeedSourceListItem.m; sourceTree = SOURCE_ROOT; };
 		D983739914178D3600321CA9 /* MainWindowController-NSTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MainWindowController-NSTableViewDelegate.m"; sourceTree = "<group>"; };
 		D983739B14178F1100321CA9 /* NSArray+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extensions.h"; sourceTree = "<group>"; };
@@ -349,6 +349,7 @@
 				D9C03CBC140E6E4700B828EB /* Frameworks */,
 				D9C03CBD140E6E4700B828EB /* Resources */,
 				D9457AED1418F7F9008D59B9 /* Copy Frameworks */,
+				D9A9FA17141A01540096951F /* Load bundle version from git */,
 			);
 			buildRules = (
 			);
@@ -425,6 +426,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D9A9FA17141A01540096951F /* Load bundle version from git */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Load bundle version from git";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REV=`git log --pretty=format:'' | wc -l | sed 's/\\ //g'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D9C03CBB140E6E4700B828EB /* Sources */ = {
