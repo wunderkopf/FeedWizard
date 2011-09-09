@@ -31,6 +31,8 @@
 		D99BE4CE140FBF080016120F /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4CD140FBF080016120F /* LoginWindowController.m */; };
 		D99BE4D1140FC1910016120F /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99BE4CF140FC1910016120F /* LoginWindow.xib */; };
 		D99BE4D4140FCFA70016120F /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4D3140FCFA70016120F /* Storage.m */; };
+		D9A9FA32141A030D0096951F /* SubscribeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A9FA31141A030D0096951F /* SubscribeWindowController.m */; };
+		D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A9FA33141A032E0096951F /* SubscribeWindow.xib */; };
 		D9C03CC4140E6E4700B828EB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C03CC3140E6E4700B828EB /* Cocoa.framework */; };
 		D9C03CCE140E6E4700B828EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CCC140E6E4700B828EB /* InfoPlist.strings */; };
 		D9C03CD0140E6E4700B828EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CCF140E6E4700B828EB /* main.m */; };
@@ -113,6 +115,9 @@
 		D99BE4D0140FC1910016120F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LoginWindow.xib; sourceTree = "<group>"; };
 		D99BE4D2140FCFA70016120F /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		D99BE4D3140FCFA70016120F /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
+		D9A9FA30141A030D0096951F /* SubscribeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeWindowController.h; sourceTree = "<group>"; };
+		D9A9FA31141A030D0096951F /* SubscribeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeWindowController.m; sourceTree = "<group>"; };
+		D9A9FA34141A032E0096951F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubscribeWindow.xib; sourceTree = "<group>"; };
 		D9C03CBF140E6E4700B828EB /* FeedWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C03CC3140E6E4700B828EB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D9C03CC6140E6E4700B828EB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -244,6 +249,9 @@
 		D9A9FA061419F8C30096951F /* Subscribe Window */ = {
 			isa = PBXGroup;
 			children = (
+				D9A9FA30141A030D0096951F /* SubscribeWindowController.h */,
+				D9A9FA31141A030D0096951F /* SubscribeWindowController.m */,
+				D9A9FA33141A032E0096951F /* SubscribeWindow.xib */,
 			);
 			name = "Subscribe Window";
 			sourceTree = "<group>";
@@ -422,6 +430,7 @@
 				D99BE4C6140FBBE80016120F /* rss.png in Resources */,
 				D99BE4D1140FC1910016120F /* LoginWindow.xib in Resources */,
 				D983739F1417A4ED00321CA9 /* feed-default.png in Resources */,
+				D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +479,7 @@
 				D9457A971418C65A008D59B9 /* MainWindowController-PSClientDelegate.m in Sources */,
 				D9457A9A1418CC72008D59B9 /* AllSourceListItem.m in Sources */,
 				D9457A9D1418DCBD008D59B9 /* Entry.m in Sources */,
+				D9A9FA32141A030D0096951F /* SubscribeWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +492,14 @@
 				D99BE4D0140FC1910016120F /* en */,
 			);
 			name = LoginWindow.xib;
+			sourceTree = "<group>";
+		};
+		D9A9FA33141A032E0096951F /* SubscribeWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9A9FA34141A032E0096951F /* en */,
+			);
+			name = SubscribeWindow.xib;
 			sourceTree = "<group>";
 		};
 		D9C03CCC140E6E4700B828EB /* InfoPlist.strings */ = {
