@@ -11,6 +11,7 @@
 #import "StuffSourceListItem.h"
 #import "FeedsSourceListItem.h"
 //#import "LoginWindowController.h"
+#import "SubscribeWindowController.h"
 
 NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
@@ -39,6 +40,9 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         
         _navigationItems = [[NSMutableArray alloc] init];
         //_loginWindowController = [[LoginWindowController alloc] init];
+        _subscribeWindowController = [[SubscribeWindowController alloc] init];
+        _subscribeWindowController.mainWindowControllerDelegate = self;
+        
         _feedQueue = [[NSOperationQueue alloc] init];
 		[_feedQueue setName:[[NSBundle mainBundle] bundleIdentifier]];
         _refreshNotification = nil;
@@ -57,15 +61,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 {
     [super awakeFromNib];
     
-    //[_navigationScrollView setScrollerStyle:NSScrollerStyleOverlay];
-    //[_navigationScrollView display];
-    //[_navigationScrollView setHasVerticalScroller:YES];
-    //[_navigationScrollView setHasVerticalScroller:YES];
-    //[_navigationScrollView setAutohidesScrollers:YES];
     [_entriesScrollView setScrollerStyle:NSScrollerStyleOverlay];
-    //[_entriesScrollView display];
-  
-    //[[[[_webView mainFrame] frameView] enclosingScrollView] setScrollerStyle:NSScrollerStyleOverlay];
 }
 
 - (void)windowDidLoad
@@ -85,7 +81,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 - (IBAction)doSomething:(id)sender
 {
     //[_loginWindowController doShowSheet:sender];
-    PSClient *client = [PSClient applicationClient];
+    /*PSClient *client = [PSClient applicationClient];
     //PSFeed *feed = [client addFeedWithURL:[NSURL URLWithString:@"http://"]];
     PSFeed *feed = [[PSFeed alloc] initWithURL:[NSURL URLWithString:@"http://cocos2dbook.com/?feed=rss2"]];
     feed.settings.refreshInterval = 300.0;
@@ -110,7 +106,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
                                     [_navigationSourceList reloadData];
                                     [notifyCenter removeObserver:_refreshNotification];
                                 }];
-                            }];
+                            }];*/
 }
 
 - (void)reloadData:(NSNotification *)notification
@@ -118,6 +114,11 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     FeedsSourceListItem *feedsItem = [_navigationItems objectAtIndex:1];
     [feedsItem reloadFeeds];
     [_navigationSourceList reloadData];
+}
+
+- (IBAction)doSubscribe:(id)sender
+{
+    [_subscribeWindowController doShowSheet:sender];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 
 //@class LoginWindowController;
+@class SubscribeWindowController;
 
 @interface MainWindowController : NSWindowController <PXSourceListDelegate, PXSourceListDataSource, NSTableViewDelegate/*, PSClientDelegate*/>
 {
@@ -26,6 +27,7 @@
     NSTableView *_entriesTableView;
     NSScrollView *_entriesScrollView;
     NSScrollView *_navigationScrollView;
+    SubscribeWindowController *_subscribeWindowController;
 }
 
 @property (assign) IBOutlet NSSplitView *mainSplitView;
@@ -38,5 +40,6 @@
 @property (assign) IBOutlet NSScrollView *navigationScrollView;
 
 - (IBAction)doSomething:(id)sender;
+- (IBAction)doSubscribe:(id)sender;
 
 @end
