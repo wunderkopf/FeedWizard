@@ -34,14 +34,14 @@
     
     [_progressIndicator startAnimation:sender];
     
-    if ([[FWStorage sharedStorage] loginForEmail:@"wunderkopf@gmail.com" withPassword:@"wunderkopf123"]) {
+    /*if ([[FWStorage sharedStorage] loginForEmail:@"wunderkopf@gmail.com" withPassword:@"wunderkopf123"]) {
         NSLog(@"Log in successfully");
         [self doCloseSheet:sender];
     }
     else
         NSLog(@"Log in failed");
     
-    [_progressIndicator stopAnimation:sender];
+    [_progressIndicator stopAnimation:sender];*/
 }
 
 @end
