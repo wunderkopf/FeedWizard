@@ -50,6 +50,8 @@ extern NSString *const AMButtonBarSelectionDidChangeNotification;
 - (void)removeItemAtIndex:(int)index;
 - (void)removeAllItems;
 
+- (void)enableAllItems:(BOOL)enable;
+
 - (void)selectItemWithIdentifier:(NSString *)identifier;
 - (void)selectItemsWithIdentifiers:(NSArray *)identifierList;
 

@@ -301,6 +301,14 @@ NSString *const AMButtonBarSelectionDidChangeNotification = @"AMButtonBarSelecti
 	[self setNeedsLayout:YES];
 }
 
+- (void)enableAllItems:(BOOL)enable
+{
+    [[self items] enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+        AMButtonBarItem *buttonItem = item;
+        [buttonItem setEnabled:enable];
+    }];
+}
+
 - (void)selectItemWithIdentifier:(NSString *)identifier
 {
 	NSEnumerator *enumerator = [[self items] objectEnumerator];
