@@ -11,9 +11,20 @@
 
 @implementation MainWindowController (AMButtonBarDelegate)
 
-- (void)buttonBarSelectionDidChange:(NSNotification *)aNotification
+- (void)buttonBarSelectionDidChange:(NSNotification *)notification
 {
-    NSLog(@"AMButtonBar selection did change");
+    //AMButtonBarItem *selectedItem = [notification object];
+    
+    if ([[_displayModeButtonBar selectedItemIdentifier] compare:@"all-items"] == NSOrderedSame)
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:OptDisplayArticlesState];
+    else if ([[_displayModeButtonBar selectedItemIdentifier] compare:@"unread-items"] == NSOrderedSame)
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:OptDisplayArticlesState];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:nil];
+    
+    //[_entriesTableView reloadData];
 }
 
 @end

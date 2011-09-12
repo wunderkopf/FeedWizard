@@ -50,8 +50,6 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         PSClient *client = [PSClient applicationClient];
         client.delegate = self;
         
-        [_displayModeButtonBar setDelegate:self];
-        
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"article" ofType:@"html"];
         NSData *articleData = [NSData dataWithContentsOfFile:filePath];
         _articleText = [[NSString alloc] initWithData:articleData encoding:NSStringEncodingConversionAllowLossy];
@@ -86,15 +84,19 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 {
     [super windowDidLoad];
     
+    BOOL displayState = [[NSUserDefaults standardUserDefaults] boolForKey:OptDisplayArticlesState];
     AMButtonBarItem *item = [[AMButtonBarItem alloc] initWithIdentifier:@"all-items"];
     [item setTitle:@"All"];
+    if (displayState)
+        [item setState:NSOnState];
     [_displayModeButtonBar insertItem:item atIndex:0];
     
     item = [[AMButtonBarItem alloc] initWithIdentifier:@"unread-items"];
     [item setTitle:@"Unread"];
-    [item setState:NSOnState];
+    if (!displayState)
+        [item setState:NSOnState];
     [_displayModeButtonBar insertItem:item atIndex:1];
-    
+    [_displayModeButtonBar setDelegate:self];
     [_displayModeButtonBar setNeedsDisplay:YES];
     
     [_navigationSourceList reloadData];
@@ -115,7 +117,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 }
 
 - (void)reloadData:(NSNotification *)notification
-{
+{    
     [_navigationSourceList reloadData];
     [_entriesTableView reloadData];
     [_entriesTableView selectRowIndexes:[_entryArrayController selectionIndexes] byExtendingSelection:NO];

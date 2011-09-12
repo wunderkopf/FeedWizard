@@ -11,7 +11,8 @@
 #import "FeedsSourceListItem.h"
 #import "Entry.h"
 //#import <OAuthConsumer/OAuthConsumer.h>
-#import "GGReadability.h"
+//#import "GGReadability.h"
+#import "Storage.h"
 
 @implementation MainWindowController (NSTableViewDelegate)
 
@@ -58,13 +59,11 @@
         articleText = [articleText stringByReplacingOccurrencesOfString:@"[CONTENT]" withString:@""];
     
     [[_webView mainFrame] loadHTMLString:articleText baseURL:entry.baseURL];
+
+    [[Storage sharedStorage] addLogoWithIdentifier:entry.entry.feed.identifier];
     
     if (![entry isRead])
-    {
         [entry setRead:YES];
-        //[_entriesTableView reloadData];
-        //[_entriesTableView selectRowIndexes:[_entryArrayController selectionIndexes] byExtendingSelection:NO];
-    }
 }
 
 @end
