@@ -14,4 +14,7 @@ extern NSString * const kUserAgentValue;
 // Notifications
 extern NSString * const FeedDidEndRefreshNotification;
 extern NSString * const ReloadDataNotification;
+
+// Options
+extern NSString * const OptDisplayArticlesState; // YES - all items, NO - only unread
 #endif

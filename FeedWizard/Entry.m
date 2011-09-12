@@ -7,6 +7,7 @@
 //
 
 #import "Entry.h"
+#import "Storage.h"
 
 @implementation Entry
 
@@ -84,6 +85,11 @@
 - (void)setFlagged:(BOOL)state
 {
     _entry.flagged = state;
+}
+
+- (NSImage *)feedLogo
+{
+    return [[Storage sharedStorage] logoWithFeedIdentifier:_entry.feed.identifier];
 }
 
 @end

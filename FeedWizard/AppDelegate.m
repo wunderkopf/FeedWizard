@@ -13,6 +13,8 @@
 NSString * const FeedDidEndRefreshNotification = @"FeedDidEndRefreshNotification";
 NSString * const ReloadDataNotification = @"ReloadDataNotification";
 
+NSString * const OptDisplayArticlesState = @"DisplayArticlesState";
+
 @implementation AppDelegate
 
 @synthesize mainWindowController = _mainWindowController;

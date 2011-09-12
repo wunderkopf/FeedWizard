@@ -20,6 +20,7 @@
 @property (readonly, assign) NSURL *alternateURL;
 @property (getter = isRead, setter = setRead:) BOOL read;
 @property (readonly, assign) NSString *feedTitle;
+@property (readonly, assign) NSImage *feedLogo;
 @property (assign) BOOL flagged;
 
 + (id)itemWithEntry:(PSEntry *)entry;
