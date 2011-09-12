@@ -8,6 +8,7 @@
 
 #import "FeedsSourceListItem.h"
 #import "FeedSourceListItem.h"
+#import "PXSourceList.h"
 
 @implementation FeedsSourceListItem
 

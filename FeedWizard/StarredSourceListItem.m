@@ -13,6 +13,7 @@
 
 - (void)reloadData
 {
+    BOOL displayState = [[NSUserDefaults standardUserDefaults] boolForKey:OptDisplayArticlesState];
     PSClient *client = [PSClient applicationClient];
     NSArray *feeds = [client feeds];
     __block NSInteger starredCount = 0;
@@ -27,7 +28,14 @@
             Entry *entry = [Entry itemWithEntry:item];
             if (entry.flagged)
             {
-                [entries addObject:entry];
+                //[entries addObject:entry];
+                if (displayState)
+                    [entries addObject:entry];
+                else
+                {
+                    if ([entry isUnread])
+                        [entries addObject:entry];
+                }
                 starredCount += 1;
             }
         }];
@@ -61,8 +69,8 @@
 {
     [self reloadData];
     
-    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
-    [notifyCenter postNotificationName:ReloadDataNotification object:self.identifier];
+    //NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    //[notifyCenter postNotificationName:ReloadDataNotification object:self.identifier];
 }
 
 @end

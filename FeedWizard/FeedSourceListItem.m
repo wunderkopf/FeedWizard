@@ -8,6 +8,7 @@
 
 #import "FeedSourceListItem.h"
 #import "Entry.h"
+#import "Storage.h"
 
 @implementation FeedSourceListItem
 
@@ -18,7 +19,7 @@
     self = [super init];
     if (self) 
     {
-        _icon = [NSImage imageNamed:@"feed-default"];
+        //_icon = [NSImage imageNamed:@"feed-default"];
     }
     
     return self;
@@ -50,15 +51,31 @@
 
 - (NSArray *)items
 {
-    //return _feed.entries;
+    BOOL displayState = [[NSUserDefaults standardUserDefaults] boolForKey:OptDisplayArticlesState];
     __block NSMutableArray *entries = [NSMutableArray array];
     
     [_feed.entries enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
         Entry *entry = [Entry itemWithEntry:item];
-        [entries addObject:entry];
-     }];
+        if (displayState)
+            [entries addObject:entry];
+        else
+        {
+            if ([entry isUnread])
+                [entries addObject:entry];
+        }
+    }];
     
     return entries;
+}
+
+- (BOOL)hasIcon
+{
+	return YES;
+}
+
+- (NSImage *)icon
+{
+    return [[Storage sharedStorage] logoWithFeedIdentifier:_feed.identifier];
 }
 
 @end

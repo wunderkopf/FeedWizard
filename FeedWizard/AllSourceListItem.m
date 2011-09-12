@@ -14,6 +14,7 @@
 
 - (void)reloadData
 {
+    BOOL displayState = [[NSUserDefaults standardUserDefaults] boolForKey:OptDisplayArticlesState];
     PSClient *client = [PSClient applicationClient];
     NSArray *feeds = [client feeds];
     __block NSInteger unreadCount = 0;
@@ -22,15 +23,20 @@
     
     [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
         PSFeed *feed = item;
-        //FeedSourceListItem *feedItem = [FeedSourceListItem itemWithFeed:feed];
-        //[_items addObject:feedItem];
         unreadCount += feed.unreadCount;
         
         __block NSMutableArray *entries = [NSMutableArray array];
         
         [feed.entries enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
             Entry *entry = [Entry itemWithEntry:item];
-            [entries addObject:entry];
+            //[entries addObject:entry];
+            if (displayState)
+                [entries addObject:entry];
+            else
+            {
+                if ([entry isUnread])
+                    [entries addObject:entry];
+            }
         }];
         
         [_items addObjectsFromArray:entries];
@@ -60,8 +66,8 @@
 - (void)dataChanged:(NSNotification *)notification
 {
     [self reloadData];
-    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
-    [notifyCenter postNotificationName:ReloadDataNotification object:self.identifier];
+    //NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    //[notifyCenter postNotificationName:ReloadDataNotification object:self.identifier];
 }
 
 @end
