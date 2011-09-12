@@ -42,7 +42,12 @@
         [_items addObjectsFromArray:entries];
     }];
     
-    self.badge = unreadCount;
+    if (unreadCount > 0)
+    {
+        self.badge = unreadCount;
+        NSDockTile *tile = [[NSApplication sharedApplication] dockTile];
+        [tile setBadgeLabel:[NSString stringWithFormat:@"%d", unreadCount]];
+    }
 }
 
 - (id)init
