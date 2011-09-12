@@ -6,24 +6,19 @@
 //  Copyright 2011 Wunderkopf. All rights reserved.
 //
 
-@class GoogleReader;
-
-@interface FWStorage : NSObject {
+@interface Storage : NSObject {
 @private
 	NSPersistentStoreCoordinator *_persistentStoreCoordinator;
     NSManagedObjectModel *_managedObjectModel;
     NSManagedObjectContext *_managedObjectContext;
 	BOOL _firstRun;
-    GoogleReader *_greader;
 }
 
 @property (assign) NSManagedObjectContext *managedObjectContext;
 @property (assign) NSArray *sortDescriptors;
 @property (readonly, assign) BOOL firstRun;
 
-+ (FWStorage *)sharedStorage;
-- (BOOL)loginForEmail:(NSString *)email withPassword:(NSString *)password;
-- (BOOL)sync;
++ (Storage *)sharedStorage;
 - (BOOL)close;
 - (NSArray *)fetchForEntity:(NSString *)name withPredicate:(NSPredicate *)predicate;
 

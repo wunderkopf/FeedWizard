@@ -7,23 +7,21 @@
 //
 
 #import "Storage.h"
-#import "GoogleReader.h"
 
-@implementation FWStorage
+@implementation Storage
 
 @synthesize managedObjectContext;
 @synthesize firstRun = _firstRun;
 @synthesize sortDescriptors;
 
-static FWStorage *_sharedStorage = nil;
+static Storage *_sharedStorage = nil;
 
-+ (FWStorage *)sharedStorage 
++ (Storage *)sharedStorage 
 {	
-	@synchronized ([FWStorage class]) {
-		
-		if (!_sharedStorage) {
+	@synchronized ([Storage class]) 
+    {
+		if (!_sharedStorage)
 			[[self alloc] init];
-		}
 		
 		return _sharedStorage;
 	}
@@ -31,10 +29,10 @@ static FWStorage *_sharedStorage = nil;
 	return nil;
 }
 
-+ (id)alloc {
-	
-	@synchronized([FWStorage class]) {
-		
++ (id)alloc 
+{	
+	@synchronized([Storage class]) 
+    {
 		NSAssert(_sharedStorage == nil, @"Attempted to allocate a second instance of a singleton.");
 		_sharedStorage = [super alloc];
 		return _sharedStorage;
@@ -43,18 +41,18 @@ static FWStorage *_sharedStorage = nil;
 	return nil;
 }
 
-- (id) init {
-	
+- (id)init 
+{	
 	self = [super init];
-	if (self != nil) {
+	if (self != nil) 
+    {
 		// Needs to create data file
 		[_sharedStorage managedObjectContext];
-        _greader = [[GoogleReader alloc] init];
 	}
 	return self;
 }
 
-- (void) dealloc 
+- (void)dealloc 
 {	
 	_managedObjectContext = nil;
 	_persistentStoreCoordinator = nil;
@@ -86,7 +84,8 @@ static FWStorage *_sharedStorage = nil;
         return _persistentStoreCoordinator;
     
     NSManagedObjectModel *mom = [self managedObjectModel];
-    if (!mom) {
+    if (!mom) 
+    {
         NSLog(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
         return nil;
     }
@@ -99,22 +98,27 @@ static FWStorage *_sharedStorage = nil;
     NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:[NSArray arrayWithObject:NSURLIsDirectoryKey] 
                                                                           error:&error];
     
-    if (!properties) {
+    if (!properties) 
+    {
         BOOL ok = NO;
-        if ([error code] == NSFileReadNoSuchFileError) {
+        if ([error code] == NSFileReadNoSuchFileError) 
+        {
             NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithBool:YES], NSFileExtensionHidden, nil];
             ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES 
                                          attributes:attributes error:&error];
             _firstRun = YES;
         }
-        if (!ok) {
+        if (!ok) 
+        {
             [[NSApplication sharedApplication] presentError:error];
             return nil;
         }
     }
-    else {
-        if ([[properties objectForKey:NSURLIsDirectoryKey] boolValue] != YES) {
+    else 
+    {
+        if ([[properties objectForKey:NSURLIsDirectoryKey] boolValue] != YES) 
+        {
             // Customize and localize this error.
             NSString *failureDescription = [NSString stringWithFormat:@"Expected a folder to store application data, found a file (%@).", [applicationFilesDirectory path]]; 
             
@@ -130,7 +134,8 @@ static FWStorage *_sharedStorage = nil;
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"fw.db"];
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url 
-                                                         options:nil error:&error]) {
+                                                         options:nil error:&error]) 
+    {
         [[NSApplication sharedApplication] presentError:error];
         _persistentStoreCoordinator = nil;
         return nil;
@@ -145,7 +150,8 @@ static FWStorage *_sharedStorage = nil;
         return _managedObjectContext;
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (!coordinator) {
+    if (!coordinator) 
+    {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
         [dict setValue:@"There was an error building up the data file." forKey:NSLocalizedFailureReasonErrorKey];
@@ -162,20 +168,22 @@ static FWStorage *_sharedStorage = nil;
 
 - (BOOL)close
 {
-    if (![_managedObjectContext commitEditing]) {
+    if (![_managedObjectContext commitEditing]) 
+    {
         NSLog(@"%@:%@ unable to commit editing", [self class], NSStringFromSelector(_cmd));
         return FALSE;
     }
     
-    if (![_managedObjectContext hasChanges]) {
+    if (![_managedObjectContext hasChanges]) 
+    {
         NSLog(@"Database has not changes");
         return TRUE;
     }
     
     // TODO: better error checking
     NSError *error = nil;
-    if (![_managedObjectContext save:&error]) {
-        
+    if (![_managedObjectContext save:&error]) 
+    {
         NSString *question = NSLocalizedString(@"Could not save changes while quitting. Quit anyway?", 
                                                @"Quit without saves error question message");
         NSString *info = NSLocalizedString(@"Quitting now will lose any changes you have made since the last successful save", @"Quit without saves error question info");
@@ -219,18 +227,6 @@ static FWStorage *_sharedStorage = nil;
 	request = nil;
     
 	return array;
-}
-
-- (BOOL)loginForEmail:(NSString *)email withPassword:(NSString *)password;
-{
-    _greader.email = email;
-    _greader.password = password;
-    return [_greader login];
-}
-
-- (BOOL)sync
-{
-    return YES;
 }
 
 @end
