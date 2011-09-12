@@ -1,42 +1,42 @@
 //
-//  AllSourceListItem.m
+//  StarredSourceListItem.m
 //  FeedWizard
 //
-//  Created by Sasha Kurylenko on 9/8/11.
+//  Created by Sasha Kurylenko on 9/12/11.
 //  Copyright 2011 Wunderkopf. All rights reserved.
 //
 
-#import "AllSourceListItem.h"
-#import "FeedSourceListItem.h"
+#import "StarredSourceListItem.h"
 #import "Entry.h"
 
-@implementation AllSourceListItem
+@implementation StarredSourceListItem
 
 - (void)reloadData
 {
     PSClient *client = [PSClient applicationClient];
     NSArray *feeds = [client feeds];
-    __block NSInteger unreadCount = 0;
+    __block NSInteger starredCount = 0;
     _items = nil;
     _items = [NSMutableArray array];
     
     [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
         PSFeed *feed = item;
-        //FeedSourceListItem *feedItem = [FeedSourceListItem itemWithFeed:feed];
-        //[_items addObject:feedItem];
-        unreadCount += feed.unreadCount;
-        
         __block NSMutableArray *entries = [NSMutableArray array];
         
         [feed.entries enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
             Entry *entry = [Entry itemWithEntry:item];
-            [entries addObject:entry];
+            if (entry.flagged)
+            {
+                [entries addObject:entry];
+                starredCount += 1;
+            }
         }];
         
         [_items addObjectsFromArray:entries];
     }];
     
-    self.badge = unreadCount;
+    if (starredCount > 0)
+        self.badge = starredCount;
 }
 
 - (id)init
@@ -44,9 +44,9 @@
     self = [super init];
     if (self) 
     {
-        self.title = @"All";
-        self.identifier = @"stuff-all";
-        self.icon = [NSImage imageNamed:@"rss"];
+        self.title = @"Starred";
+        self.identifier = @"stuff-starred";
+        self.icon = [NSImage imageNamed:@"star"];
         
         NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
         [notifyCenter addObserver:self selector:@selector(dataChanged:) name:FeedDidEndRefreshNotification object:nil];
@@ -60,6 +60,7 @@
 - (void)dataChanged:(NSNotification *)notification
 {
     [self reloadData];
+    
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter postNotificationName:ReloadDataNotification object:self.identifier];
 }

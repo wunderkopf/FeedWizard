@@ -10,6 +10,4 @@
 
 @interface FeedsSourceListItem : SourceListItem
 
-- (void)reloadFeeds;
-
 @end

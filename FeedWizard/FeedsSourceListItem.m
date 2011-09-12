@@ -11,6 +11,19 @@
 
 @implementation FeedsSourceListItem
 
+- (void)reloadData
+{
+    PSClient *client = [PSClient applicationClient];
+    NSArray *feeds = [client feeds];
+    _children = nil;
+    _children = [NSMutableArray array];
+    
+    [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+        FeedSourceListItem *feedItem = [FeedSourceListItem itemWithFeed:item];
+        [_children addObject:feedItem];
+    }];
+}
+
 - (id)init
 {
     self = [super init];
@@ -20,39 +33,21 @@
         self.identifier = @"feeds";
         self.icon = nil;
         
-        PSClient *client = [PSClient applicationClient];
-        NSArray *feeds = [client feeds];
-        //NSLog(@"%@", feeds);
-        //_children = nil;
-        //_children = [NSMutableArray array];
+        NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+        [notifyCenter addObserver:self selector:@selector(dataChanged:) name:FeedDidEndRefreshNotification object:nil];
         
-        [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) 
-         {
-             PSFeed *feed = item;
-             FeedSourceListItem *feedItem = [FeedSourceListItem itemWithFeed:feed];
-             //feed.settings.refreshInterval = 300;
-             //NSLog(@"%@ has interval %f", feed.title, feed.settings.refreshInterval);
-             //[[[[PSClient applicationClient] feedWithIdentifier:feed.identifier] settings] setRefreshInterval:300];
-             [_children addObject:feedItem];
-         }];
+        [self reloadData];
     }
     
     return self;
 }
 
-- (void)reloadFeeds
+- (void)dataChanged:(NSNotification *)notification
 {
-    PSClient *client = [PSClient applicationClient];
-    NSArray *feeds = [client feeds];
-    //NSLog(@"%@", feeds);
-    _children = nil;
-    _children = [NSMutableArray array];
+    [self reloadData];
     
-    [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) 
-     {
-         FeedSourceListItem *feedItem = [FeedSourceListItem itemWithFeed:item];
-         [_children addObject:feedItem];
-     }];
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter postNotificationName:ReloadDataNotification object:self.identifier];
 }
 
 @end
