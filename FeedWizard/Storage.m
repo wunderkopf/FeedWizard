@@ -7,6 +7,7 @@
 //
 
 #import "Storage.h"
+#import "NSImage+Extensions.h"
 
 @implementation Storage
 
@@ -48,6 +49,8 @@ static Storage *_sharedStorage = nil;
     {
 		// Needs to create data file
 		[_sharedStorage managedObjectContext];
+        _loadQueue = [[NSOperationQueue alloc] init];
+		[_loadQueue setName:[[NSBundle mainBundle] bundleIdentifier]];
 	}
 	return self;
 }
@@ -66,6 +69,11 @@ static Storage *_sharedStorage = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *libraryURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
     return [libraryURL URLByAppendingPathComponent:@"FeedWizard"];
+}
+
+- (NSURL *)imagesFilesDirectory 
+{    
+    return [[self applicationFilesDirectory] URLByAppendingPathComponent:@"Images"];
 }
 
 - (NSManagedObjectModel *)managedObjectModel 
@@ -92,11 +100,12 @@ static Storage *_sharedStorage = nil;
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
+    NSURL *imagesFilesDirectory = [self imagesFilesDirectory];
     NSError *error = nil;
     _firstRun = NO;
     
-    NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:[NSArray arrayWithObject:NSURLIsDirectoryKey] 
-                                                                          error:&error];
+    NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:
+                                [NSArray arrayWithObject:NSURLIsDirectoryKey] error:&error];
     
     if (!properties) 
     {
@@ -107,6 +116,8 @@ static Storage *_sharedStorage = nil;
                                         [NSNumber numberWithBool:YES], NSFileExtensionHidden, nil];
             ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES 
                                          attributes:attributes error:&error];
+            ok = [fileManager createDirectoryAtPath:[imagesFilesDirectory path] 
+                        withIntermediateDirectories:YES attributes:attributes error:&error];
             _firstRun = YES;
         }
         if (!ok) 
@@ -227,6 +238,39 @@ static Storage *_sharedStorage = nil;
 	request = nil;
     
 	return array;
+}
+
+- (NSImage *)logoWithFeedIdentifier:(NSString *)identifier
+{
+    NSMutableString *name = [NSMutableString stringWithString:identifier];
+    [name appendString:@".png"];
+    NSURL *path = [[self imagesFilesDirectory] URLByAppendingPathComponent:name];
+    // TODO: error checking
+    NSError *error = nil;
+    if ([path checkResourceIsReachableAndReturnError:&error])
+        return [[NSImage alloc] initWithContentsOfURL:path];
+    
+    return [NSImage imageNamed:@"feed-default"];
+}
+
+- (void)addLogoWithIdentifier:(NSString *)identifier;
+{
+    if ([identifier length] > 0)
+    {
+        NSMutableString *name = [NSMutableString stringWithString:identifier];
+        [name appendString:@".png"];
+        
+        NSURL *path = [[self imagesFilesDirectory] URLByAppendingPathComponent:name];
+        // TODO: error checking
+        NSError *error = nil;
+        if (![path checkResourceIsReachableAndReturnError:&error])
+        {
+            PSFeed *feed = [[PSClient applicationClient] feedWithIdentifier:identifier];
+            NSURL *faviconURL = [NSURL URLWithString: @"/favicon.ico" relativeToURL:feed.alternateURL];
+            NSImage *logo = [[NSImage alloc] initWithContentsOfURL:faviconURL];
+            [logo saveAsPNGWithName:name atURL:[self imagesFilesDirectory]];
+        }
+    }
 }
 
 @end

@@ -12,6 +12,7 @@
     NSManagedObjectModel *_managedObjectModel;
     NSManagedObjectContext *_managedObjectContext;
 	BOOL _firstRun;
+    NSOperationQueue *_loadQueue;
 }
 
 @property (assign) NSManagedObjectContext *managedObjectContext;
@@ -21,5 +22,7 @@
 + (Storage *)sharedStorage;
 - (BOOL)close;
 - (NSArray *)fetchForEntity:(NSString *)name withPredicate:(NSPredicate *)predicate;
+- (NSImage *)logoWithFeedIdentifier:(NSString *)identifier;
+- (void)addLogoWithIdentifier:(NSString *)identifier;
 
 @end
