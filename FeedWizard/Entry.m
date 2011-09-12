@@ -11,6 +11,7 @@
 @implementation Entry
 
 @synthesize entry = _entry;
+@synthesize flagged;
 
 - (id)init
 {
@@ -73,6 +74,16 @@
 - (NSURL *)alternateURL
 {
     return _entry.alternateURL;
+}
+
+- (BOOL)flagged
+{
+    return _entry.flagged;
+}
+
+- (void)setFlagged:(BOOL)state
+{
+    _entry.flagged = state;
 }
 
 @end
