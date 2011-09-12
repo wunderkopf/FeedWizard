@@ -46,7 +46,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     {
         NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
         [notifyCenter addObserver:self selector:@selector(reloadData:) name:ReloadDataNotification object:nil];
-
+        
         PSClient *client = [PSClient applicationClient];
         client.delegate = self;
         
@@ -130,14 +130,25 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
 - (IBAction)doUnsubscribe:(id)sender
 {
-    NSAssert([_currentItem isKindOfClass:[FeedSourceListItem class]], 
-             @"Current item should always be FeedSourceListItem type.");
-
-    PSClient *client = [PSClient applicationClient];
-    FeedSourceListItem *feed = _currentItem;
+    FeedSourceListItem *feed = nil;
+    if ([_currentItem isKindOfClass:[FeedSourceListItem class]])
+        feed = _currentItem;
+    else
+        return;
     
-    if (![client removeFeed:feed.feed])
-        NSLog(@"Can not unsubscribe feed");
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Are you really want to unsubscribe?" 
+                                     defaultButton:NSLocalizedString(@"Cancel", @"") 
+								   alternateButton:NSLocalizedString(@"Unsubscribe", @"") otherButton:nil 
+						 informativeTextWithFormat:NSLocalizedString(@"Subscribtion can not be restored.", @"")];
+	[[alert window] setTitle:[NSString stringWithFormat:@"Unsubscribe %@", feed.title]];
+	NSInteger button = [alert runModal];
+	
+	if (button == NSAlertAlternateReturn) 
+    {
+        PSClient *client = [PSClient applicationClient];
+        if (![client removeFeed:feed.feed])
+            NSLog(@"Can not unsubscribe feed");
+    }
 }
 
 - (IBAction)doFeedSettings:(id)sender
