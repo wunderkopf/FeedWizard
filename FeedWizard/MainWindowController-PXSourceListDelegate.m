@@ -30,8 +30,7 @@
     _currentItem = [_navigationSourceList itemAtRow:[selectedIndexes firstIndex]];
     [_entryArrayController setContent:((SourceListItem *)_currentItem).items];
     [_entryArrayController setSortDescriptors:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"dateForDisplay" ascending:NO]]];
-    
-    //[_entryTableView reloadData];
+    //[_entryArrayController setSelectionIndex:[selectedIndexes firstIndex]];
 }
 
 - (void)sourceListDeleteKeyPressedOnRows:(NSNotification *)notification

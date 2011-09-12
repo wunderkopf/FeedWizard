@@ -7,13 +7,21 @@
 //
 
 #import "MainWindowController.h"
+
+#import "Entry.h"
 #import "SourceListItem.h"
 #import "StuffSourceListItem.h"
 #import "FeedsSourceListItem.h"
 #import "FeedSourceListItem.h"
+
 //#import "LoginWindowController.h"
 #import "SubscribeWindowController.h"
+
 #import "INAppStoreWindow.h"
+
+#import "AMButtonBar.h"
+#import "AMButtonBarItem.h"
+#import "NSGradient_AMButtonBar.h"
 
 NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
@@ -28,6 +36,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 @synthesize entriesScrollView = _entriesScrollView;
 @synthesize navigationScrollView = _navigationScrollView;
 @synthesize feedMenu = _feedMenu;
+@synthesize displayModeButtonBar = _displayModeButtonBar;
 
 - (id)init
 {
@@ -40,6 +49,12 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
         PSClient *client = [PSClient applicationClient];
         client.delegate = self;
+        
+        [_displayModeButtonBar setDelegate:self];
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"article" ofType:@"html"];
+        NSData *articleData = [NSData dataWithContentsOfFile:filePath];
+        _articleText = [[NSString alloc] initWithData:articleData encoding:NSStringEncodingConversionAllowLossy];
         
         _navigationItems = [[NSMutableArray alloc] init];
         //_loginWindowController = [[LoginWindowController alloc] init];
@@ -71,6 +86,17 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 {
     [super windowDidLoad];
     
+    AMButtonBarItem *item = [[AMButtonBarItem alloc] initWithIdentifier:@"all-items"];
+    [item setTitle:@"All"];
+    [_displayModeButtonBar insertItem:item atIndex:0];
+    
+    item = [[AMButtonBarItem alloc] initWithIdentifier:@"unread-items"];
+    [item setTitle:@"Unread"];
+    [item setState:NSOnState];
+    [_displayModeButtonBar insertItem:item atIndex:1];
+    
+    [_displayModeButtonBar setNeedsDisplay:YES];
+    
     [_navigationSourceList reloadData];
 }
 
@@ -86,40 +112,13 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
 - (IBAction)doSomething:(id)sender
 {
-    //[_loginWindowController doShowSheet:sender];
-    /*PSClient *client = [PSClient applicationClient];
-    //PSFeed *feed = [client addFeedWithURL:[NSURL URLWithString:@"http://"]];
-    PSFeed *feed = [[PSFeed alloc] initWithURL:[NSURL URLWithString:@"http://cocos2dbook.com/?feed=rss2"]];
-    feed.settings.refreshInterval = 300.0;
-    [client addFeed:feed];
-    FeedsSourceListItem *feedsItem = [_navigationItems objectAtIndex:1];
-    
-    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
-	_refreshNotification = [notifyCenter addObserverForName:PSFeedRefreshingNotification object:feed 
-                                                      queue:_feedQueue usingBlock:^(NSNotification *arg1) 
-                            {
-                                if ([feed isRefreshing])
-                                    return;
-                                
-                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                    
-                                    //if (nil != feedError) {
-                                    //    [NSApp presentError:feedError];
-                                    //    return;
-                                    //}
-                                    
-                                    [feedsItem reloadFeeds];
-                                    [_navigationSourceList reloadData];
-                                    [notifyCenter removeObserver:_refreshNotification];
-                                }];
-                            }];*/
 }
 
 - (void)reloadData:(NSNotification *)notification
 {
-    FeedsSourceListItem *feedsItem = [_navigationItems objectAtIndex:1];
-    [feedsItem reloadFeeds];
     [_navigationSourceList reloadData];
+    [_entriesTableView reloadData];
+    [_entriesTableView selectRowIndexes:[_entryArrayController selectionIndexes] byExtendingSelection:NO];
 }
 
 - (IBAction)doSubscribe:(id)sender
@@ -169,6 +168,14 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     FeedSourceListItem *feed = _currentItem;
     
     [[NSWorkspace sharedWorkspace] openURL:feed.feed.alternateURL];
+}
+
+- (IBAction)doChangeFlag:(id)sender
+{
+    NSButton *starButton = sender;
+    NSArray *selectedObjects = [_entryArrayController selectedObjects];
+    Entry *entry = [selectedObjects firstObject];
+    entry.flagged = (BOOL)[starButton state];
 }
 
 @end

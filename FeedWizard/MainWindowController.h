@@ -11,6 +11,7 @@
 
 //@class LoginWindowController;
 @class SubscribeWindowController;
+@class AMButtonBar;
 
 @interface MainWindowController : NSWindowController <PXSourceListDelegate, PXSourceListDataSource, NSTableViewDelegate/*, PSClientDelegate*/>
 {
@@ -29,6 +30,8 @@
     NSScrollView *_navigationScrollView;
     SubscribeWindowController *_subscribeWindowController;
     NSMenu *_feedMenu;
+    NSString *_articleText;
+    AMButtonBar *_displayModeButtonBar;
 }
 
 @property (assign) IBOutlet NSSplitView *mainSplitView;
@@ -40,6 +43,7 @@
 @property (assign) IBOutlet NSScrollView *entriesScrollView;
 @property (assign) IBOutlet NSScrollView *navigationScrollView;
 @property (assign) IBOutlet NSMenu *feedMenu;
+@property (assign) IBOutlet AMButtonBar *displayModeButtonBar;
 
 - (IBAction)doSomething:(id)sender;
 - (IBAction)doSubscribe:(id)sender;
@@ -47,5 +51,6 @@
 - (IBAction)doFeedSettings:(id)sender;
 - (IBAction)doOpenFeedHome:(id)sender;
 - (IBAction)doOpenFeedHomeInBrowser:(id)sender;
+- (IBAction)doChangeFlag:(id)sender;
 
 @end
