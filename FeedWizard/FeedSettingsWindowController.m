@@ -40,9 +40,4 @@
     _feedURLTextField.stringValue = _feed.alternateURL.description;
 }
 
-- (IBAction)doSaveChanges:(id)sender
-{
-    [self doCloseSheet:sender];
-}
-
 @end
