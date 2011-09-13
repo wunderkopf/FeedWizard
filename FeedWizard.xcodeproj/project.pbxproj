@@ -21,6 +21,7 @@
 		D95547BB141DEE4100623802 /* MainWindowController-AMButtonBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D95547BA141DEE4100623802 /* MainWindowController-AMButtonBarDelegate.m */; };
 		D95547BD141DF9FB00623802 /* star-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = D95547BC141DF9FB00623802 /* star-enabled.png */; };
 		D95547C0141E022C00623802 /* StarredSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D95547BF141E022B00623802 /* StarredSourceListItem.m */; };
+		D95547C3141E337E00623802 /* NSImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D95547C2141E337500623802 /* NSImage+Extensions.m */; };
 		D9803C7A141B45D800171059 /* GGReadability.m in Sources */ = {isa = PBXBuildFile; fileRef = D9803C78141B45D800171059 /* GGReadability.m */; };
 		D9837385141745A200321CA9 /* PubSub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9837384141745A200321CA9 /* PubSub.framework */; };
 		D983738A14174DEC00321CA9 /* FeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = D983738914174DEC00321CA9 /* FeedController.m */; };
@@ -56,6 +57,7 @@
 		D9C03CDD140E6E4700B828EB /* FeedWizard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CDB140E6E4700B828EB /* FeedWizard.xcdatamodeld */; };
 		D9C03CEA140E71C700B828EB /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CE9140E71C700B828EB /* MainWindowController.m */; };
 		D9C03CED140E729C00B828EB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CEB140E729C00B828EB /* MainWindow.xib */; };
+		D9C5E452141F427E007A38B3 /* fw.icns in Resources */ = {isa = PBXBuildFile; fileRef = D9C5E451141F427E007A38B3 /* fw.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		D95547BC141DF9FB00623802 /* star-enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-enabled.png"; sourceTree = "<group>"; };
 		D95547BE141E022B00623802 /* StarredSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StarredSourceListItem.h; path = FeedWizard/StarredSourceListItem.h; sourceTree = SOURCE_ROOT; };
 		D95547BF141E022B00623802 /* StarredSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StarredSourceListItem.m; path = FeedWizard/StarredSourceListItem.m; sourceTree = SOURCE_ROOT; };
+		D95547C1141E336900623802 /* NSImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Extensions.h"; sourceTree = "<group>"; };
+		D95547C2141E337500623802 /* NSImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extensions.m"; sourceTree = "<group>"; };
 		D9803C77141B45D800171059 /* GGReadability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGReadability.h; sourceTree = "<group>"; };
 		D9803C78141B45D800171059 /* GGReadability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGReadability.m; sourceTree = "<group>"; };
 		D9837384141745A200321CA9 /* PubSub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PubSub.framework; path = System/Library/Frameworks/PubSub.framework; sourceTree = SDKROOT; };
@@ -174,6 +178,7 @@
 		D9C03CE8140E71C700B828EB /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		D9C03CE9140E71C700B828EB /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		D9C03CEC140E729C00B828EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D9C5E451141F427E007A38B3 /* fw.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = fw.icns; path = ../fw.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +306,7 @@
 		D99BE4C0140FBB180016120F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D9C5E451141F427E007A38B3 /* fw.icns */,
 				D95547BC141DF9FB00623802 /* star-enabled.png */,
 				D983739E1417A4ED00321CA9 /* feed-default.png */,
 				D99BE4C5140FBBE70016120F /* rss.png */,
@@ -404,6 +410,8 @@
 				D99BE4BA140FB6560016120F /* SheetWindowController.m */,
 				D983739B14178F1100321CA9 /* NSArray+Extensions.h */,
 				D983739C14178F1200321CA9 /* NSArray+Extensions.m */,
+				D95547C1141E336900623802 /* NSImage+Extensions.h */,
+				D95547C2141E337500623802 /* NSImage+Extensions.m */,
 				D9457A9B1418DCBC008D59B9 /* Entry.h */,
 				D9457A9C1418DCBD008D59B9 /* Entry.m */,
 				D9C03CD8140E6E4700B828EB /* MainMenu.xib */,
@@ -529,6 +537,7 @@
 				D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */,
 				D984007A141CC29C006B0BEA /* article.html in Resources */,
 				D95547BD141DF9FB00623802 /* star-enabled.png in Resources */,
+				D9C5E452141F427E007A38B3 /* fw.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +599,7 @@
 				D95547B5141DEAE600623802 /* NSShadow_AMAdditions.m in Sources */,
 				D95547BB141DEE4100623802 /* MainWindowController-AMButtonBarDelegate.m in Sources */,
 				D95547C0141E022C00623802 /* StarredSourceListItem.m in Sources */,
+				D95547C3141E337E00623802 /* NSImage+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
