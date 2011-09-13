@@ -16,6 +16,7 @@
 
 //#import "LoginWindowController.h"
 #import "SubscribeWindowController.h"
+#import "FeedSettingsWindowController.h"
 
 #import "INAppStoreWindow.h"
 
@@ -55,9 +56,12 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         _articleText = [[NSString alloc] initWithData:articleData encoding:NSStringEncodingConversionAllowLossy];
         
         _navigationItems = [[NSMutableArray alloc] init];
-        //_loginWindowController = [[LoginWindowController alloc] init];
+
         _subscribeWindowController = [[SubscribeWindowController alloc] init];
         _subscribeWindowController.mainWindowControllerDelegate = self;
+        
+        _feedSettingsWindowController = [[FeedSettingsWindowController alloc] init];
+        _feedSettingsWindowController.mainWindowControllerDelegate = self;
         
         _feedQueue = [[NSOperationQueue alloc] init];
 		[_feedQueue setName:[[NSBundle mainBundle] bundleIdentifier]];
@@ -153,7 +157,11 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
 - (IBAction)doFeedSettings:(id)sender
 {
+    NSIndexSet *selectedIndexes = [_navigationSourceList selectedRowIndexes];
+    _currentItem = [_navigationSourceList itemAtRow:[selectedIndexes firstIndex]];
+    _feedSettingsWindowController.feed = ((FeedSourceListItem *)_currentItem).feed;
     
+    [_feedSettingsWindowController doShowSheet:sender];
 }
 
 - (IBAction)doOpenFeedHome:(id)sender

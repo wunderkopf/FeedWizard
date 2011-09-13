@@ -12,6 +12,7 @@
 //@class LoginWindowController;
 @class SubscribeWindowController;
 @class AMButtonBar;
+@class FeedSettingsWindowController;
 
 @interface MainWindowController : NSWindowController <PXSourceListDelegate, PXSourceListDataSource, NSTableViewDelegate/*, PSClientDelegate*/>
 {
@@ -32,6 +33,7 @@
     NSMenu *_feedMenu;
     NSString *_articleText;
     AMButtonBar *_displayModeButtonBar;
+    FeedSettingsWindowController *_feedSettingsWindowController;
 }
 
 @property (assign) IBOutlet NSSplitView *mainSplitView;
@@ -52,5 +54,6 @@
 - (IBAction)doOpenFeedHome:(id)sender;
 - (IBAction)doOpenFeedHomeInBrowser:(id)sender;
 - (IBAction)doChangeFlag:(id)sender;
+//- (IBAction)doMarkAllAsRead:(id)sender;
 
 @end

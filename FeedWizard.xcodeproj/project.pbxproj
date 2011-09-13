@@ -58,6 +58,10 @@
 		D9C03CEA140E71C700B828EB /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CE9140E71C700B828EB /* MainWindowController.m */; };
 		D9C03CED140E729C00B828EB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CEB140E729C00B828EB /* MainWindow.xib */; };
 		D9C5E452141F427E007A38B3 /* fw.icns in Resources */ = {isa = PBXBuildFile; fileRef = D9C5E451141F427E007A38B3 /* fw.icns */; };
+		D9C5E455141F4665007A38B3 /* FeedSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C5E454141F4665007A38B3 /* FeedSettingsWindowController.m */; };
+		D9C5E458141F467B007A38B3 /* FeedSettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C5E456141F467B007A38B3 /* FeedSettingsWindow.xib */; };
+		D9CF2B64141F576B0014B36A /* atom-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2B63141F576B0014B36A /* atom-feed.png */; };
+		D9CF2B66141F57760014B36A /* rss-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2B65141F57760014B36A /* rss-feed.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +183,11 @@
 		D9C03CE9140E71C700B828EB /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		D9C03CEC140E729C00B828EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		D9C5E451141F427E007A38B3 /* fw.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = fw.icns; path = ../fw.icns; sourceTree = "<group>"; };
+		D9C5E453141F4665007A38B3 /* FeedSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSettingsWindowController.h; sourceTree = "<group>"; };
+		D9C5E454141F4665007A38B3 /* FeedSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSettingsWindowController.m; sourceTree = "<group>"; };
+		D9C5E457141F467B007A38B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FeedSettingsWindow.xib; sourceTree = "<group>"; };
+		D9CF2B63141F576B0014B36A /* atom-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atom-feed.png"; sourceTree = "<group>"; };
+		D9CF2B65141F57760014B36A /* rss-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-feed.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +315,8 @@
 		D99BE4C0140FBB180016120F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D9CF2B65141F57760014B36A /* rss-feed.png */,
+				D9CF2B63141F576B0014B36A /* atom-feed.png */,
 				D9C5E451141F427E007A38B3 /* fw.icns */,
 				D95547BC141DF9FB00623802 /* star-enabled.png */,
 				D983739E1417A4ED00321CA9 /* feed-default.png */,
@@ -348,6 +359,9 @@
 		D9B5D660141A34E200E57378 /* Feed Settings Window */ = {
 			isa = PBXGroup;
 			children = (
+				D9C5E453141F4665007A38B3 /* FeedSettingsWindowController.h */,
+				D9C5E454141F4665007A38B3 /* FeedSettingsWindowController.m */,
+				D9C5E456141F467B007A38B3 /* FeedSettingsWindow.xib */,
 			);
 			name = "Feed Settings Window";
 			sourceTree = "<group>";
@@ -538,6 +552,9 @@
 				D984007A141CC29C006B0BEA /* article.html in Resources */,
 				D95547BD141DF9FB00623802 /* star-enabled.png in Resources */,
 				D9C5E452141F427E007A38B3 /* fw.icns in Resources */,
+				D9C5E458141F467B007A38B3 /* FeedSettingsWindow.xib in Resources */,
+				D9CF2B64141F576B0014B36A /* atom-feed.png in Resources */,
+				D9CF2B66141F57760014B36A /* rss-feed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +617,7 @@
 				D95547BB141DEE4100623802 /* MainWindowController-AMButtonBarDelegate.m in Sources */,
 				D95547C0141E022C00623802 /* StarredSourceListItem.m in Sources */,
 				D95547C3141E337E00623802 /* NSImage+Extensions.m in Sources */,
+				D9C5E455141F4665007A38B3 /* FeedSettingsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +678,14 @@
 				D9C03CEC140E729C00B828EB /* en */,
 			);
 			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D9C5E456141F467B007A38B3 /* FeedSettingsWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9C5E457141F467B007A38B3 /* en */,
+			);
+			name = FeedSettingsWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
