@@ -78,6 +78,7 @@
             [_cancelButton setHidden:NO];
 
             [notifyCenter removeObserver:_refreshNotification];
+            [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
             [self doCloseSheet:nil];
         }];
     }];
