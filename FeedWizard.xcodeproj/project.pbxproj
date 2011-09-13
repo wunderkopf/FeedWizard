@@ -32,6 +32,11 @@
 		D983739D14178F1300321CA9 /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D983739C14178F1200321CA9 /* NSArray+Extensions.m */; };
 		D983739F1417A4ED00321CA9 /* feed-default.png in Resources */ = {isa = PBXBuildFile; fileRef = D983739E1417A4ED00321CA9 /* feed-default.png */; };
 		D984007A141CC29C006B0BEA /* article.html in Resources */ = {isa = PBXBuildFile; fileRef = D9840078141CC29C006B0BEA /* article.html */; };
+		D99537EE141F68AB00E2477E /* TagsSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D99537ED141F68AB00E2477E /* TagsSourceListItem.m */; };
+		D99537F2141F71A700E2477E /* EntrySettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99537F1141F71A700E2477E /* EntrySettingsWindowController.m */; };
+		D99537F5141F71C100E2477E /* EntrySettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99537F3141F71C100E2477E /* EntrySettingsWindow.xib */; };
+		D99537F8141F764D00E2477E /* EntryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99537F7141F764C00E2477E /* EntryTableView.m */; };
+		D995381A141F88AA00E2477E /* MainWindowController-NSSplitViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9953819141F88AA00E2477E /* MainWindowController-NSSplitViewDelegate.m */; };
 		D99BE4A7140FACEB0016120F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99BE4A6140FACEB0016120F /* WebKit.framework */; };
 		D99BE4AD140FB1E40016120F /* PXSourceList.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4AA140FB1E40016120F /* PXSourceList.m */; };
 		D99BE4B0140FB21E0016120F /* SourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4AF140FB21E0016120F /* SourceListItem.m */; };
@@ -139,6 +144,14 @@
 		D983739C14178F1200321CA9 /* NSArray+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extensions.m"; sourceTree = "<group>"; };
 		D983739E1417A4ED00321CA9 /* feed-default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feed-default.png"; sourceTree = "<group>"; };
 		D9840079141CC29C006B0BEA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/article.html; sourceTree = "<group>"; };
+		D99537EC141F68AB00E2477E /* TagsSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagsSourceListItem.h; path = FeedWizard/TagsSourceListItem.h; sourceTree = SOURCE_ROOT; };
+		D99537ED141F68AB00E2477E /* TagsSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagsSourceListItem.m; path = FeedWizard/TagsSourceListItem.m; sourceTree = SOURCE_ROOT; };
+		D99537F0141F71A700E2477E /* EntrySettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySettingsWindowController.h; sourceTree = "<group>"; };
+		D99537F1141F71A700E2477E /* EntrySettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySettingsWindowController.m; sourceTree = "<group>"; };
+		D99537F4141F71C100E2477E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EntrySettingsWindow.xib; sourceTree = "<group>"; };
+		D99537F6141F764C00E2477E /* EntryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableView.h; sourceTree = "<group>"; };
+		D99537F7141F764C00E2477E /* EntryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableView.m; sourceTree = "<group>"; };
+		D9953819141F88AA00E2477E /* MainWindowController-NSSplitViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MainWindowController-NSSplitViewDelegate.m"; sourceTree = "<group>"; };
 		D99BE4A6140FACEB0016120F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D99BE4A9140FB1E40016120F /* PXSourceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXSourceList.h; sourceTree = "<group>"; };
 		D99BE4AA140FB1E40016120F /* PXSourceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXSourceList.m; sourceTree = "<group>"; };
@@ -262,7 +275,7 @@
 			name = "Feed Controller";
 			sourceTree = "<group>";
 		};
-		D983738B1417515500321CA9 /* Items */ = {
+		D983738B1417515500321CA9 /* Source List Items */ = {
 			isa = PBXGroup;
 			children = (
 				D99BE4AE140FB21E0016120F /* SourceListItem.h */,
@@ -277,8 +290,49 @@
 				D9457A991418CC72008D59B9 /* AllSourceListItem.m */,
 				D95547BE141E022B00623802 /* StarredSourceListItem.h */,
 				D95547BF141E022B00623802 /* StarredSourceListItem.m */,
+				D99537EC141F68AB00E2477E /* TagsSourceListItem.h */,
+				D99537ED141F68AB00E2477E /* TagsSourceListItem.m */,
 			);
-			name = Items;
+			name = "Source List Items";
+			path = PXSourceList;
+			sourceTree = "<group>";
+		};
+		D99537EF141F716F00E2477E /* Entry Settings Window */ = {
+			isa = PBXGroup;
+			children = (
+				D99537F0141F71A700E2477E /* EntrySettingsWindowController.h */,
+				D99537F1141F71A700E2477E /* EntrySettingsWindowController.m */,
+				D99537F3141F71C100E2477E /* EntrySettingsWindow.xib */,
+			);
+			name = "Entry Settings Window";
+			sourceTree = "<group>";
+		};
+		D995381B141F88F200E2477E /* 3d Party */ = {
+			isa = PBXGroup;
+			children = (
+				D99BE4A8140FB1E40016120F /* PXSourceList */,
+				D99F493B141A51DB0098B8C3 /* INAppStoreWindow */,
+				D9803C76141B45D800171059 /* GGReadability */,
+				D9554799141DEAE600623802 /* AMButtonBar */,
+			);
+			name = "3d Party";
+			sourceTree = "<group>";
+		};
+		D995381C141F8A2400E2477E /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				D9457A9B1418DCBC008D59B9 /* Entry.h */,
+				D9457A9C1418DCBD008D59B9 /* Entry.m */,
+				D99537F6141F764C00E2477E /* EntryTableView.h */,
+				D99537F7141F764C00E2477E /* EntryTableView.m */,
+				D99BE4B9140FB6560016120F /* SheetWindowController.h */,
+				D99BE4BA140FB6560016120F /* SheetWindowController.m */,
+				D983739B14178F1100321CA9 /* NSArray+Extensions.h */,
+				D983739C14178F1200321CA9 /* NSArray+Extensions.m */,
+				D95547C1141E336900623802 /* NSImage+Extensions.h */,
+				D95547C2141E337500623802 /* NSImage+Extensions.m */,
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 		D99BE4A0140FAA060016120F /* Core Data */ = {
@@ -294,7 +348,6 @@
 		D99BE4A8140FB1E40016120F /* PXSourceList */ = {
 			isa = PBXGroup;
 			children = (
-				D983738B1417515500321CA9 /* Items */,
 				D99BE4A9140FB1E40016120F /* PXSourceList.h */,
 				D99BE4AA140FB1E40016120F /* PXSourceList.m */,
 				D99BE4AB140FB1E40016120F /* PXSourceListDataSource.h */,
@@ -408,28 +461,20 @@
 		D9C03CC9140E6E4700B828EB /* FeedWizard */ = {
 			isa = PBXGroup;
 			children = (
-				D9554799141DEAE600623802 /* AMButtonBar */,
-				D9803C76141B45D800171059 /* GGReadability */,
-				D99F493B141A51DB0098B8C3 /* INAppStoreWindow */,
+				D995381B141F88F200E2477E /* 3d Party */,
+				D9C03CCA140E6E4700B828EB /* Supporting Files */,
+				D995381C141F8A2400E2477E /* Misc */,
+				D99BE4BC140FB7A00016120F /* Google Reader */,
+				D983738714174DCA00321CA9 /* Feed Controller */,
+				D99BE4A0140FAA060016120F /* Core Data */,
+				D99537EF141F716F00E2477E /* Entry Settings Window */,
 				D9B5D660141A34E200E57378 /* Feed Settings Window */,
 				D9A9FA061419F8C30096951F /* Subscribe Window */,
-				D983738714174DCA00321CA9 /* Feed Controller */,
-				D99BE4BC140FB7A00016120F /* Google Reader */,
 				D99BE4CB140FBE890016120F /* Login Window */,
-				D99BE4A0140FAA060016120F /* Core Data */,
 				D9C03CE7140E716300B828EB /* Main Window */,
 				D9C03CD5140E6E4700B828EB /* AppDelegate.h */,
 				D9C03CD6140E6E4700B828EB /* AppDelegate.m */,
-				D99BE4B9140FB6560016120F /* SheetWindowController.h */,
-				D99BE4BA140FB6560016120F /* SheetWindowController.m */,
-				D983739B14178F1100321CA9 /* NSArray+Extensions.h */,
-				D983739C14178F1200321CA9 /* NSArray+Extensions.m */,
-				D95547C1141E336900623802 /* NSImage+Extensions.h */,
-				D95547C2141E337500623802 /* NSImage+Extensions.m */,
-				D9457A9B1418DCBC008D59B9 /* Entry.h */,
-				D9457A9C1418DCBD008D59B9 /* Entry.m */,
 				D9C03CD8140E6E4700B828EB /* MainMenu.xib */,
-				D9C03CCA140E6E4700B828EB /* Supporting Files */,
 			);
 			path = FeedWizard;
 			sourceTree = "<group>";
@@ -451,7 +496,7 @@
 		D9C03CE7140E716300B828EB /* Main Window */ = {
 			isa = PBXGroup;
 			children = (
-				D99BE4A8140FB1E40016120F /* PXSourceList */,
+				D983738B1417515500321CA9 /* Source List Items */,
 				D9C03CE8140E71C700B828EB /* MainWindowController.h */,
 				D9C03CE9140E71C700B828EB /* MainWindowController.m */,
 				D99BE4B5140FB3C10016120F /* MainWindowController-PXSourceListDataSource.m */,
@@ -459,6 +504,7 @@
 				D983739914178D3600321CA9 /* MainWindowController-NSTableViewDelegate.m */,
 				D9457A961418C65A008D59B9 /* MainWindowController-PSClientDelegate.m */,
 				D95547BA141DEE4100623802 /* MainWindowController-AMButtonBarDelegate.m */,
+				D9953819141F88AA00E2477E /* MainWindowController-NSSplitViewDelegate.m */,
 				D9C03CEB140E729C00B828EB /* MainWindow.xib */,
 			);
 			name = "Main Window";
@@ -555,6 +601,7 @@
 				D9C5E458141F467B007A38B3 /* FeedSettingsWindow.xib in Resources */,
 				D9CF2B64141F576B0014B36A /* atom-feed.png in Resources */,
 				D9CF2B66141F57760014B36A /* rss-feed.png in Resources */,
+				D99537F5141F71C100E2477E /* EntrySettingsWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +665,10 @@
 				D95547C0141E022C00623802 /* StarredSourceListItem.m in Sources */,
 				D95547C3141E337E00623802 /* NSImage+Extensions.m in Sources */,
 				D9C5E455141F4665007A38B3 /* FeedSettingsWindowController.m in Sources */,
+				D99537EE141F68AB00E2477E /* TagsSourceListItem.m in Sources */,
+				D99537F2141F71A700E2477E /* EntrySettingsWindowController.m in Sources */,
+				D99537F8141F764D00E2477E /* EntryTableView.m in Sources */,
+				D995381A141F88AA00E2477E /* MainWindowController-NSSplitViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +681,14 @@
 				D9840079141CC29C006B0BEA /* en */,
 			);
 			name = article.html;
+			sourceTree = "<group>";
+		};
+		D99537F3141F71C100E2477E /* EntrySettingsWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D99537F4141F71C100E2477E /* en */,
+			);
+			name = EntrySettingsWindow.xib;
 			sourceTree = "<group>";
 		};
 		D99BE4CF140FC1910016120F /* LoginWindow.xib */ = {
