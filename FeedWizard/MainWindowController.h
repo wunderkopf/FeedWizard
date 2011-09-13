@@ -13,6 +13,8 @@
 @class SubscribeWindowController;
 @class AMButtonBar;
 @class FeedSettingsWindowController;
+@class EntrySettingsWindowController;
+@class EntryTableView;
 
 @interface MainWindowController : NSWindowController <PXSourceListDelegate, PXSourceListDataSource, NSTableViewDelegate/*, PSClientDelegate*/>
 {
@@ -26,7 +28,7 @@
     NSArrayController *_entryArrayController;
     //LoginWindowController *_loginWindowController;
     WebView *_webView;
-    NSTableView *_entriesTableView;
+    EntryTableView *_entriesTableView;
     NSScrollView *_entriesScrollView;
     NSScrollView *_navigationScrollView;
     SubscribeWindowController *_subscribeWindowController;
@@ -34,6 +36,8 @@
     NSString *_articleText;
     AMButtonBar *_displayModeButtonBar;
     FeedSettingsWindowController *_feedSettingsWindowController;
+    EntrySettingsWindowController *_entrySettingsWindowController;
+    NSMenu *_entryMenu;
 }
 
 @property (assign) IBOutlet NSSplitView *mainSplitView;
@@ -41,11 +45,12 @@
 @property (assign) id currentItem;
 @property (assign) IBOutlet NSArrayController *entryArrayController;
 @property (assign) IBOutlet WebView *webView;
-@property (assign) IBOutlet NSTableView *entriesTableView;
+@property (assign) IBOutlet EntryTableView *entriesTableView;
 @property (assign) IBOutlet NSScrollView *entriesScrollView;
 @property (assign) IBOutlet NSScrollView *navigationScrollView;
 @property (assign) IBOutlet NSMenu *feedMenu;
 @property (assign) IBOutlet AMButtonBar *displayModeButtonBar;
+@property (assign) IBOutlet NSMenu *entryMenu;
 
 - (IBAction)doSomething:(id)sender;
 - (IBAction)doSubscribe:(id)sender;
@@ -54,6 +59,7 @@
 - (IBAction)doOpenFeedHome:(id)sender;
 - (IBAction)doOpenFeedHomeInBrowser:(id)sender;
 - (IBAction)doChangeFlag:(id)sender;
-//- (IBAction)doMarkAllAsRead:(id)sender;
+- (IBAction)doEntrySettings:(id)sender;
+- (IBAction)doOpenEntryInBrowser:(id)sender;
 
 @end

@@ -66,4 +66,9 @@
         [entry setRead:YES];
 }
 
+- (NSMenu *)tableView:(NSTableView *)tableView menuForEvent:(NSEvent *)event
+{
+    return _entryMenu;
+}
+
 @end

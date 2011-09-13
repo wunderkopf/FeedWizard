@@ -12,14 +12,12 @@
 
 - (void)feedDidBeginRefresh:(PSFeed *)feed
 {
-    //NSLog(@"Refresh of '%@' did begin", feed.title);
+    NSLog(@"Refresh of '%@' did begin", feed.title);
 }
 
 - (void)feedDidEndRefresh:(PSFeed *)feed
 {
-    //NSLog(@"Refresh of '%@' did end", feed.title);
-    //NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
-    //[notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
+    NSLog(@"Refresh of '%@' did end", feed.title);
 }
 
 - (void)feed:(PSFeed *)feed didAddEntries:(NSArray *)entries

@@ -13,10 +13,12 @@
 #import "StuffSourceListItem.h"
 #import "FeedsSourceListItem.h"
 #import "FeedSourceListItem.h"
+#import "TagsSourceListItem.h"
 
 //#import "LoginWindowController.h"
 #import "SubscribeWindowController.h"
 #import "FeedSettingsWindowController.h"
+#import "EntrySettingsWindowController.h"
 
 #import "INAppStoreWindow.h"
 
@@ -38,6 +40,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 @synthesize navigationScrollView = _navigationScrollView;
 @synthesize feedMenu = _feedMenu;
 @synthesize displayModeButtonBar = _displayModeButtonBar;
+@synthesize entryMenu = _entryMenu;
 
 - (id)init
 {
@@ -63,6 +66,9 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         _feedSettingsWindowController = [[FeedSettingsWindowController alloc] init];
         _feedSettingsWindowController.mainWindowControllerDelegate = self;
         
+        _entrySettingsWindowController = [[EntrySettingsWindowController alloc] init];
+        _entrySettingsWindowController.mainWindowControllerDelegate = self;
+        
         _feedQueue = [[NSOperationQueue alloc] init];
 		[_feedQueue setName:[[NSBundle mainBundle] bundleIdentifier]];
         _refreshNotification = nil;
@@ -70,8 +76,10 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         
         StuffSourceListItem *stuffItem = [[StuffSourceListItem alloc] init];
         FeedsSourceListItem *feedsItem = [[FeedsSourceListItem alloc] init];
+        //TagsSourceListItem *tagsItem = [[TagsSourceListItem alloc] init];
         [_navigationItems addObject:stuffItem];
         [_navigationItems addObject:feedsItem];
+        //[_navigationItems addObject:tagsItem];
     }
 	
     return self;
@@ -152,15 +160,14 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         PSClient *client = [PSClient applicationClient];
         if (![client removeFeed:feed.feed])
             NSLog(@"Can not unsubscribe feed");
+        NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+        [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed.feed];
     }
 }
 
 - (IBAction)doFeedSettings:(id)sender
 {
-    NSIndexSet *selectedIndexes = [_navigationSourceList selectedRowIndexes];
-    _currentItem = [_navigationSourceList itemAtRow:[selectedIndexes firstIndex]];
     _feedSettingsWindowController.feed = ((FeedSourceListItem *)_currentItem).feed;
-    
     [_feedSettingsWindowController doShowSheet:sender];
 }
 
@@ -197,6 +204,19 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     NSArray *selectedObjects = [_entryArrayController selectedObjects];
     Entry *entry = [selectedObjects firstObject];
     entry.flagged = (BOOL)[starButton state];
+}
+
+- (IBAction)doEntrySettings:(id)sender
+{
+    NSArray *selectedObjects = [_entryArrayController selectedObjects];
+    Entry *entry = [selectedObjects firstObject];
+    _entrySettingsWindowController.entry = entry;
+    [_entrySettingsWindowController doShowSheet:sender];
+}
+
+- (IBAction)doOpenEntryInBrowser:(id)sender
+{
+    
 }
 
 @end
