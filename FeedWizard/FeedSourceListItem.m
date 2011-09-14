@@ -36,6 +36,9 @@
 
 - (NSString *)title
 {
+    if ([_feed.title length] == 0)
+        return @"Fetching...";
+    
     return _feed.title;
 }
 
