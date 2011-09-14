@@ -7,22 +7,24 @@
 //
 
 #import "MainWindowController.h"
+#import "NotifyController.h"
 
 @implementation MainWindowController (PSClientDelegate)
 
 - (void)feedDidBeginRefresh:(PSFeed *)feed
 {
-    NSLog(@"Refresh of '%@' did begin", feed.title);
+    //NSLog(@"Refresh of '%@' did begin", feed.title);
 }
 
 - (void)feedDidEndRefresh:(PSFeed *)feed
 {
-    NSLog(@"Refresh of '%@' did end", feed.title);
+    //NSLog(@"Refresh of '%@' did end", feed.title);
 }
 
 - (void)feed:(PSFeed *)feed didAddEntries:(NSArray *)entries
 {
-    NSLog(@"Added %lu entries to '%@' feed", [entries count], feed.title);
+    NSString *description = [NSString stringWithFormat:@"Added %lu entries to '%@' feed", [entries count], feed.title];
+    [[NotifyController sharedNotifyController] infoWithTitle:@"New feed entries" andDescription:description];
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
 }
@@ -30,6 +32,8 @@
 - (void)feed:(PSFeed *)feed didRemoveEntriesWithIdentifiers:(NSArray *)identifiers
 {
     NSLog(@"Removed %lu entries from '%@' feed", [identifiers count], feed.title);
+    NSString *description = [NSString stringWithFormat:@"Removed %lu entries from '%@' feed", [identifiers count], feed.title];
+    [[NotifyController sharedNotifyController] infoWithTitle:@"Removed feed entries" andDescription:description];
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
 }
