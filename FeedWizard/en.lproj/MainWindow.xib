@@ -473,7 +473,6 @@
 									</object>
 									<string key="NSFrame">{{351, 0}, {348, 402}}</string>
 									<reference key="NSSuperview" ref="383071123"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:601</string>
 									<string key="NSClassName">NSView</string>
 								</object>
@@ -1163,6 +1162,14 @@
 					</object>
 					<int key="connectionID">166</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">doOpenEntryInBrowser:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="755136086"/>
+					</object>
+					<int key="connectionID">167</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1698,7 +1705,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">166</int>
+			<int key="maxID">167</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
