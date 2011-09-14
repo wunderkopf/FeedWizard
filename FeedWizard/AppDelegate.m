@@ -50,9 +50,100 @@ NSString * const OptDisplayArticlesState = @"DisplayArticlesState";
 
 - (void)dealloc
 {
-     _mainWindowController = nil;
+    _mainWindowController = nil;
     
     [super dealloc];
+}
+
+- (IBAction)doExportOPML:(id)sender
+{
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"opml", @"xml", nil];
+    
+    [savePanel setAllowedFileTypes:allowedFileTypes];
+    [savePanel setCanSelectHiddenExtension:NO];
+    [savePanel setTreatsFilePackagesAsDirectories:NO];
+    
+    if ([savePanel runModal] == NSOKButton) 
+    {
+        NSXMLElement *root = [[NSXMLElement alloc] initWithName:@"opml"];
+        [root addAttribute:[NSXMLNode attributeWithName:@"version" stringValue:@"1.0"]];
+        
+        NSXMLElement *head = [[NSXMLElement alloc] initWithName:@"head"];
+        NSXMLElement *title = [[NSXMLElement alloc] initWithName:@"title" stringValue:@"Subscriptions in FeedWizard"];
+        [head addChild:title];
+        [root addChild:head];
+        
+        NSXMLElement *body = [[NSXMLElement alloc] initWithName:@"body"];
+        // Enumerate feeds
+        PSClient *client = [PSClient applicationClient];
+        NSArray *feeds = [client feeds];
+        
+        [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+            PSFeed *feed = item;
+            NSXMLElement *outline = [[NSXMLElement alloc] initWithName:@"outline"];
+            [outline addAttribute:[NSXMLNode attributeWithName:@"text" stringValue:feed.title]];
+            [outline addAttribute:[NSXMLNode attributeWithName:@"title" stringValue:feed.title]];
+            if (feed.feedFormat == PSAtomFormat)
+                [outline addAttribute:[NSXMLNode attributeWithName:@"type" stringValue:@"atom"]];
+            else
+                [outline addAttribute:[NSXMLNode attributeWithName:@"type" stringValue:@"rss"]];
+            [outline addAttribute:[NSXMLNode attributeWithName:@"xmlUrl" stringValue:feed.URL.description]];
+            [outline addAttribute:[NSXMLNode attributeWithName:@"htmlUrl" stringValue:feed.alternateURL.description]];
+            [body addChild:outline];
+        }];
+        //
+        [root addChild:body];
+        
+        NSXMLDocument *doc = [[NSXMLDocument alloc] initWithRootElement:root];
+        [doc setCharacterEncoding:@"UTF-8"];
+        [doc setVersion:@"1.0"];
+        
+        NSData *xmlData = [doc XMLDataWithOptions:NSXMLNodePrettyPrint | NSXMLNodeCompactEmptyElement];
+        
+        [xmlData writeToURL:[savePanel URL] atomically:YES];
+    }
+}
+
+- (IBAction)doImportOPML:(id)sender
+{
+    // Implementation in Main Window Controller
+    [_mainWindowController doImportOPML:sender];
+}
+
+- (IBAction)doUnsubsribeAll:(id)sender
+{
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Are you really want to unsubscribe all feeds?" 
+                                     defaultButton:NSLocalizedString(@"Cancel", @"") 
+								   alternateButton:NSLocalizedString(@"Unsubscribe", @"") otherButton:nil 
+						 informativeTextWithFormat:NSLocalizedString(@"Subscribtiones can not be restored.", @"")];
+	[[alert window] setTitle:[NSString stringWithString:@"Unsubscribe All"]];
+	NSInteger button = [alert runModal];
+	
+	if (button == NSAlertAlternateReturn) 
+    {
+        PSClient *client = [PSClient applicationClient];
+        NSArray *feeds = [client feeds];
+        
+        [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+            PSFeed *feed = item;
+            [client removeFeed:feed];
+        }];
+        
+        NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+        [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:nil];
+        [notifyCenter postNotificationName:ReloadDataNotification object:nil];
+    }
+}
+
+- (IBAction)doSubscribe:(id)sender
+{
+    [_mainWindowController doSubscribe:sender];
+}
+
+- (IBAction)doUnsubscribe:(id)sender
+{
+    [_mainWindowController doUnsubscribe:sender];
 }
 
 @end

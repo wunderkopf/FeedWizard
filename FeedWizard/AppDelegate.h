@@ -8,11 +8,18 @@
 
 @class MainWindowController;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate> 
+{
 @private
     MainWindowController *_mainWindowController;
 }
 
 @property (assign) MainWindowController *mainWindowController;
+
+- (IBAction)doExportOPML:(id)sender;
+- (IBAction)doImportOPML:(id)sender;
+- (IBAction)doUnsubsribeAll:(id)sender;
+- (IBAction)doSubscribe:(id)sender;
+- (IBAction)doUnsubscribe:(id)sender;
 
 @end
