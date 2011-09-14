@@ -9,7 +9,6 @@
 #import "PXSourceList.h"
 #import <WebKit/WebKit.h>
 
-//@class LoginWindowController;
 @class SubscribeWindowController;
 @class AMButtonBar;
 @class FeedSettingsWindowController;
@@ -26,7 +25,6 @@
     id _refreshNotification;
     id _currentItem;
     NSArrayController *_entryArrayController;
-    //LoginWindowController *_loginWindowController;
     WebView *_webView;
     EntryTableView *_entriesTableView;
     NSScrollView *_entriesScrollView;
@@ -61,5 +59,7 @@
 - (IBAction)doEntrySettings:(id)sender;
 - (IBAction)doOpenEntryInBrowser:(id)sender;
 - (IBAction)doImportOPML:(id)sender;
+- (IBAction)doMarkAllAsRead:(id)sender;
+- (IBAction)doMarkAllAsUnread:(id)sender;
 
 @end

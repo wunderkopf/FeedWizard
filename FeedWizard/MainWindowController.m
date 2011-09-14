@@ -117,7 +117,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 - (void)showWindow:(id)sender
 {
     INAppStoreWindow *window = (INAppStoreWindow *)self.window;
-    window.titleBarHeight = 40.0;
+    window.titleBarHeight = 10.0;
     
     [super showWindow:sender];
 }
@@ -240,6 +240,34 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         }];
         [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:nil];
     }
+}
+
+- (IBAction)doMarkAllAsRead:(id)sender
+{
+    NSAssert([_currentItem isKindOfClass:[FeedSourceListItem class]], 
+             @"Current item should always be FeedSourceListItem type.");
+    
+    FeedSourceListItem *feed = _currentItem;
+    
+    [[feed items] enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+        Entry *entry = item;
+        if ([entry isUnread])
+            entry.read = YES;
+    }];
+}
+
+- (IBAction)doMarkAllAsUnread:(id)sender
+{
+    NSAssert([_currentItem isKindOfClass:[FeedSourceListItem class]], 
+             @"Current item should always be FeedSourceListItem type.");
+    
+    FeedSourceListItem *feed = _currentItem;
+    
+    [[feed items] enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+        Entry *entry = item;
+        if ([entry isRead])
+            entry.read = NO;
+    }];
 }
 
 @end
