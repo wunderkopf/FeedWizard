@@ -92,4 +92,9 @@
     return [[Storage sharedStorage] logoWithFeedIdentifier:_entry.feed.identifier];
 }
 
+- (NSString *)summary
+{
+    return _entry.summary.HTMLString;
+}
+
 @end
