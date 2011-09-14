@@ -15,7 +15,6 @@
 #import "FeedSourceListItem.h"
 #import "TagsSourceListItem.h"
 
-//#import "LoginWindowController.h"
 #import "SubscribeWindowController.h"
 #import "FeedSettingsWindowController.h"
 #import "EntrySettingsWindowController.h"
@@ -25,6 +24,7 @@
 #import "AMButtonBar.h"
 #import "AMButtonBarItem.h"
 #import "NSGradient_AMButtonBar.h"
+#import "OPMLParser.h"
 
 NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
@@ -122,10 +122,6 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     [super showWindow:sender];
 }
 
-//- (IBAction)doSomething:(id)sender
-//{
-//}
-
 - (void)reloadData:(NSNotification *)notification
 {    
     [_navigationSourceList reloadData];
@@ -217,6 +213,33 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     NSArray *selectedObjects = [_entryArrayController selectedObjects];
     Entry *entry = [selectedObjects firstObject];
     [[NSWorkspace sharedWorkspace] openURL:entry.alternateURL];
+}
+
+- (IBAction)doImportOPML:(id)sender
+{
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"opml", @"xml", nil];
+    
+    [openPanel setCanChooseDirectories:NO];
+    [openPanel setAllowedFileTypes:allowedFileTypes];
+    [openPanel setAllowsMultipleSelection:NO];
+    [openPanel setResolvesAliases:YES];
+    [openPanel setCanChooseFiles:YES];
+    
+    if ([openPanel runModal] == NSOKButton) 
+    {
+        OPMLParser *parser = [[OPMLParser alloc] init];
+        if (![parser parseFileAtURL:[openPanel URL]])
+            NSLog(@"Can not parse ompl file");
+        
+        PSClient *client = [PSClient applicationClient];
+        NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+        [[parser feeds] enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+            PSFeed *feed = item;
+            [client addFeed:feed];
+        }];
+        [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:nil];
+    }
 }
 
 @end
