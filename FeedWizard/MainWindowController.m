@@ -59,7 +59,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         _articleText = [[NSString alloc] initWithData:articleData encoding:NSStringEncodingConversionAllowLossy];
         
         _navigationItems = [[NSMutableArray alloc] init];
-
+        
         _subscribeWindowController = [[SubscribeWindowController alloc] init];
         _subscribeWindowController.mainWindowControllerDelegate = self;
         
@@ -120,13 +120,11 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     window.titleBarHeight = 40.0;
     
     [super showWindow:sender];
-    
-    //[_loginWindowController doShowSheet:sender];
 }
 
-- (IBAction)doSomething:(id)sender
-{
-}
+//- (IBAction)doSomething:(id)sender
+//{
+//}
 
 - (void)reloadData:(NSNotification *)notification
 {    
@@ -216,7 +214,9 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
 - (IBAction)doOpenEntryInBrowser:(id)sender
 {
-    
+    NSArray *selectedObjects = [_entryArrayController selectedObjects];
+    Entry *entry = [selectedObjects firstObject];
+    [[NSWorkspace sharedWorkspace] openURL:entry.alternateURL];
 }
 
 @end

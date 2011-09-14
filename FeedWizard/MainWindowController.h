@@ -52,7 +52,7 @@
 @property (assign) IBOutlet AMButtonBar *displayModeButtonBar;
 @property (assign) IBOutlet NSMenu *entryMenu;
 
-- (IBAction)doSomething:(id)sender;
+//- (IBAction)doSomething:(id)sender;
 - (IBAction)doSubscribe:(id)sender;
 - (IBAction)doUnsubscribe:(id)sender;
 - (IBAction)doFeedSettings:(id)sender;
