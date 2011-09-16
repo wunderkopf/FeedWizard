@@ -17,4 +17,5 @@ extern NSString * const ReloadDataNotification;
 
 // Options
 extern NSString * const OptDisplayArticlesState; // YES - all items, NO - only unread
+extern NSString * const OptDoNotAskAboutDefaultReader; // YES or NO
 #endif
