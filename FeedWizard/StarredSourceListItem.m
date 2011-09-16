@@ -28,7 +28,6 @@
             Entry *entry = [Entry itemWithEntry:item];
             if (entry.flagged)
             {
-                //[entries addObject:entry];
                 if (displayState)
                     [entries addObject:entry];
                 else
@@ -52,7 +51,7 @@
     self = [super init];
     if (self) 
     {
-        self.title = @"Starred";
+        self.title = NSLocalizedString(@"Starred", nil);
         self.identifier = @"stuff-starred";
         self.icon = [NSImage imageNamed:@"star"];
         

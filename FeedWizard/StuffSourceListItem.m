@@ -17,7 +17,7 @@
     self = [super init];
     if (self) 
     {
-        self.title = @"STUFF";
+        self.title = NSLocalizedString(@"STUFF", @"Stuff source list item title");
         self.identifier = @"stuff";
         self.icon = nil;
         

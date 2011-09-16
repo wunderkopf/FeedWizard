@@ -15,7 +15,7 @@
     self = [super init];
     if (self) 
     {
-        self.title = @"TAGS";
+        self.title = NSLocalizedString(@"TAGS", nil);
         self.identifier = @"tags";
         self.icon = nil;        
     }

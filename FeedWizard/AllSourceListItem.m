@@ -29,7 +29,6 @@
         
         [feed.entries enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
             Entry *entry = [Entry itemWithEntry:item];
-            //[entries addObject:entry];
             if (displayState)
                 [entries addObject:entry];
             else
@@ -55,7 +54,7 @@
     self = [super init];
     if (self) 
     {
-        self.title = @"All";
+        self.title = NSLocalizedString(@"All", nil);
         self.identifier = @"stuff-all";
         self.icon = [NSImage imageNamed:@"rss"];
         

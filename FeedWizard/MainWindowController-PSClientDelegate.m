@@ -23,8 +23,8 @@
 
 - (void)feed:(PSFeed *)feed didAddEntries:(NSArray *)entries
 {
-    NSString *description = [NSString stringWithFormat:@"Added %lu entries to '%@' feed", [entries count], feed.title];
-    [[NotifyController sharedNotifyController] infoWithTitle:@"New feed entries" andDescription:description];
+    NSString *description = [NSString stringWithFormat:NSLocalizedString(@"Added %lu entries to '%@' feed", nil), [entries count], feed.title];
+    [[NotifyController sharedNotifyController] infoWithTitle:NSLocalizedString(@"New feed entries", nil) andDescription:description];
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
 }
@@ -32,8 +32,8 @@
 - (void)feed:(PSFeed *)feed didRemoveEntriesWithIdentifiers:(NSArray *)identifiers
 {
     NSLog(@"Removed %lu entries from '%@' feed", [identifiers count], feed.title);
-    NSString *description = [NSString stringWithFormat:@"Removed %lu entries from '%@' feed", [identifiers count], feed.title];
-    [[NotifyController sharedNotifyController] infoWithTitle:@"Removed feed entries" andDescription:description];
+    NSString *description = [NSString stringWithFormat:NSLocalizedString(@"Removed %lu entries from '%@' feed", nil), [identifiers count], feed.title];
+    [[NotifyController sharedNotifyController] infoWithTitle:NSLocalizedString(@"Removed feed entries", nil) andDescription:description];
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
 }

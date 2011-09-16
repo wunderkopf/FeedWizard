@@ -30,7 +30,7 @@
     self = [super init];
     if (self) 
     {
-        self.title = @"FEEDS";
+        self.title = NSLocalizedString(@"FEEDS", nil);
         self.identifier = @"feeds";
         self.icon = nil;
         

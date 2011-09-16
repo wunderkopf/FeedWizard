@@ -26,7 +26,8 @@
     if ([entry.titleForDisplay length] > 0)
         articleText = [_articleText stringByReplacingOccurrencesOfString:@"[TITLE]" withString:entry.titleForDisplay];
     else
-        articleText = [_articleText stringByReplacingOccurrencesOfString:@"[TITLE]" withString:@"No Title"];
+        articleText = [_articleText stringByReplacingOccurrencesOfString:@"[TITLE]" withString:
+                       NSLocalizedString(@"No Title", nil)];
     
     articleText = [articleText stringByReplacingOccurrencesOfString:@"[DATE]" withString:entry.dateForDisplay.description];
     
@@ -38,7 +39,8 @@
         if ([entry.summary length] > 0)
             articleText = [articleText stringByReplacingOccurrencesOfString:@"[CONTENT]" withString:entry.summary];
         else
-            articleText = [articleText stringByReplacingOccurrencesOfString:@"[CONTENT]" withString:@"No content"];
+            articleText = [articleText stringByReplacingOccurrencesOfString:@"[CONTENT]" withString:
+                           NSLocalizedString(@"No content", nil)];
     }
     
     [[_webView mainFrame] loadHTMLString:articleText baseURL:entry.baseURL];

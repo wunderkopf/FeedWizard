@@ -19,7 +19,6 @@
     self = [super init];
     if (self) 
     {
-        //_icon = [NSImage imageNamed:@"feed-default"];
     }
     
     return self;
@@ -37,7 +36,7 @@
 - (NSString *)title
 {
     if ([_feed.title length] == 0)
-        return @"Fetching...";
+        return NSLocalizedString(@"Fetching...", nil);
     
     return _feed.title;
 }
