@@ -22,7 +22,6 @@
 		D95547BD141DF9FB00623802 /* star-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = D95547BC141DF9FB00623802 /* star-enabled.png */; };
 		D95547C0141E022C00623802 /* StarredSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D95547BF141E022B00623802 /* StarredSourceListItem.m */; };
 		D95547C3141E337E00623802 /* NSImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D95547C2141E337500623802 /* NSImage+Extensions.m */; };
-		D9803C7A141B45D800171059 /* GGReadability.m in Sources */ = {isa = PBXBuildFile; fileRef = D9803C78141B45D800171059 /* GGReadability.m */; };
 		D9837385141745A200321CA9 /* PubSub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9837384141745A200321CA9 /* PubSub.framework */; };
 		D983738A14174DEC00321CA9 /* FeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = D983738914174DEC00321CA9 /* FeedController.m */; };
 		D983738E1417519500321CA9 /* StuffSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D983738D1417519500321CA9 /* StuffSourceListItem.m */; };
@@ -73,6 +72,8 @@
 		D9C5E458141F467B007A38B3 /* FeedSettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C5E456141F467B007A38B3 /* FeedSettingsWindow.xib */; };
 		D9CF2B64141F576B0014B36A /* atom-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2B63141F576B0014B36A /* atom-feed.png */; };
 		D9CF2B66141F57760014B36A /* rss-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2B65141F57760014B36A /* rss-feed.png */; };
+		D9CF60A1142387120011419E /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CF60A0142387120011419E /* PreferencesWindowController.m */; };
+		D9CF60A4142387350011419E /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CF60A2142387350011419E /* PreferencesWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,8 +136,6 @@
 		D95547BF141E022B00623802 /* StarredSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StarredSourceListItem.m; path = FeedWizard/StarredSourceListItem.m; sourceTree = SOURCE_ROOT; };
 		D95547C1141E336900623802 /* NSImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Extensions.h"; sourceTree = "<group>"; };
 		D95547C2141E337500623802 /* NSImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extensions.m"; sourceTree = "<group>"; };
-		D9803C77141B45D800171059 /* GGReadability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGReadability.h; sourceTree = "<group>"; };
-		D9803C78141B45D800171059 /* GGReadability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGReadability.m; sourceTree = "<group>"; };
 		D9837384141745A200321CA9 /* PubSub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PubSub.framework; path = System/Library/Frameworks/PubSub.framework; sourceTree = SDKROOT; };
 		D983738814174DEC00321CA9 /* FeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedController.h; sourceTree = "<group>"; };
 		D983738914174DEC00321CA9 /* FeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedController.m; sourceTree = "<group>"; };
@@ -224,6 +223,11 @@
 		D9C5E457141F467B007A38B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FeedSettingsWindow.xib; sourceTree = "<group>"; };
 		D9CF2B63141F576B0014B36A /* atom-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atom-feed.png"; sourceTree = "<group>"; };
 		D9CF2B65141F57760014B36A /* rss-feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-feed.png"; sourceTree = "<group>"; };
+		D9CF609F142387120011419E /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		D9CF60A0142387120011419E /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		D9CF60A3142387350011419E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
+		D9CF60A5142387440011419E /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
+		D9CF60A6142388D90011419E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,15 +285,6 @@
 			path = AMButtonBar;
 			sourceTree = "<group>";
 		};
-		D9803C76141B45D800171059 /* GGReadability */ = {
-			isa = PBXGroup;
-			children = (
-				D9803C77141B45D800171059 /* GGReadability.h */,
-				D9803C78141B45D800171059 /* GGReadability.m */,
-			);
-			path = GGReadability;
-			sourceTree = "<group>";
-		};
 		D983738714174DCA00321CA9 /* Feed Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,7 +331,6 @@
 			children = (
 				D99BE4A8140FB1E40016120F /* PXSourceList */,
 				D99F493B141A51DB0098B8C3 /* INAppStoreWindow */,
-				D9803C76141B45D800171059 /* GGReadability */,
 				D9554799141DEAE600623802 /* AMButtonBar */,
 			);
 			name = "3d Party";
@@ -494,6 +488,7 @@
 			children = (
 				D995381B141F88F200E2477E /* 3d Party */,
 				D9C03CCA140E6E4700B828EB /* Supporting Files */,
+				D9CF609E142386E80011419E /* Preferences Window */,
 				D995381C141F8A2400E2477E /* Misc */,
 				D99BE4BC140FB7A00016120F /* Google Reader */,
 				D983738714174DCA00321CA9 /* Feed Controller */,
@@ -540,6 +535,16 @@
 				D9C03CEB140E729C00B828EB /* MainWindow.xib */,
 			);
 			name = "Main Window";
+			sourceTree = "<group>";
+		};
+		D9CF609E142386E80011419E /* Preferences Window */ = {
+			isa = PBXGroup;
+			children = (
+				D9CF609F142387120011419E /* PreferencesWindowController.h */,
+				D9CF60A0142387120011419E /* PreferencesWindowController.m */,
+				D9CF60A2142387350011419E /* PreferencesWindow.xib */,
+			);
+			name = "Preferences Window";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,6 +641,7 @@
 				D9CF2B66141F57760014B36A /* rss-feed.png in Resources */,
 				D99537F5141F71C100E2477E /* EntrySettingsWindow.xib in Resources */,
 				D98512481420E8F80040103D /* Localizable.strings in Resources */,
+				D9CF60A4142387350011419E /* PreferencesWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +692,6 @@
 				D9457A9D1418DCBD008D59B9 /* Entry.m in Sources */,
 				D9A9FA32141A030D0096951F /* SubscribeWindowController.m in Sources */,
 				D99F493E141A51DB0098B8C3 /* INAppStoreWindow.m in Sources */,
-				D9803C7A141B45D800171059 /* GGReadability.m in Sources */,
 				D95547AD141DEAE600623802 /* AMButtonBar.m in Sources */,
 				D95547AE141DEAE600623802 /* AMButtonBarCell.m in Sources */,
 				D95547AF141DEAE600623802 /* AMButtonBarItem.m in Sources */,
@@ -706,6 +711,7 @@
 				D9B191E91420803500B84B89 /* OPMLParser.m in Sources */,
 				D985123F1420E19F0040103D /* NotifyController.m in Sources */,
 				D98CE77514235EE4007DEABE /* NSAlert+Extensions.m in Sources */,
+				D9CF60A1142387120011419E /* PreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +766,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9C03CCD140E6E4700B828EB /* en */,
+				D9CF60A6142388D90011419E /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -798,6 +805,15 @@
 				D98512421420E88E0040103D /* uk */,
 			);
 			name = FeedSettingsWindow.xib;
+			sourceTree = "<group>";
+		};
+		D9CF60A2142387350011419E /* PreferencesWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9CF60A3142387350011419E /* en */,
+				D9CF60A5142387440011419E /* uk */,
+			);
+			name = PreferencesWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
