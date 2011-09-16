@@ -25,6 +25,7 @@
 #import "AMButtonBarItem.h"
 #import "NSGradient_AMButtonBar.h"
 #import "OPMLParser.h"
+#import "NSAlert+Extensions.h"
 
 NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
@@ -53,6 +54,13 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         
         PSClient *client = [PSClient applicationClient];
         client.delegate = self;
+        
+        NSAppleEventManager *eventManager = [NSAppleEventManager sharedAppleEventManager];
+        [eventManager setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:) 
+                        forEventClass:kInternetEventClass andEventID:kAEGetURL];
+        
+        [eventManager setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:) forEventClass:'WWW!' 
+                           andEventID:'OURL'];
         
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"article" ofType:@"html"];
         NSData *articleData = [NSData dataWithContentsOfFile:filePath];
@@ -98,13 +106,13 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     
     BOOL displayState = [[NSUserDefaults standardUserDefaults] boolForKey:OptDisplayArticlesState];
     AMButtonBarItem *item = [[AMButtonBarItem alloc] initWithIdentifier:@"all-items"];
-    [item setTitle:@"All"];
+    [item setTitle:NSLocalizedString(@"All", nil)];
     if (displayState)
         [item setState:NSOnState];
     [_displayModeButtonBar insertItem:item atIndex:0];
     
     item = [[AMButtonBarItem alloc] initWithIdentifier:@"unread-items"];
-    [item setTitle:@"Unread"];
+    [item setTitle:NSLocalizedString(@"Unread", nil)];
     if (!displayState)
         [item setState:NSOnState];
     [_displayModeButtonBar insertItem:item atIndex:1];
@@ -114,12 +122,49 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     [_navigationSourceList reloadData];
 }
 
+- (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent
+{
+    NSString *subscriptionURL = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+    
+    [self doSubscribe:nil];
+    _subscribeWindowController.urlTextField.stringValue = subscriptionURL;
+    [_subscribeWindowController.subscribeButton setEnabled:YES];
+}
+
 - (void)showWindow:(id)sender
 {
     INAppStoreWindow *window = (INAppStoreWindow *)self.window;
     window.titleBarHeight = 10.0;
     
     [super showWindow:sender];
+    
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    CFStringRef schemeHandler = LSCopyDefaultHandlerForURLScheme((CFStringRef)@"feed");
+    BOOL doNotAskAboutDefaultReader = [[NSUserDefaults standardUserDefaults] boolForKey:OptDoNotAskAboutDefaultReader];
+    
+    if ([bundleID compare:(NSString *)schemeHandler options:NSCaseInsensitiveSearch] != NSOrderedSame &&
+        !doNotAskAboutDefaultReader)
+    {
+        NSAlertCheckbox *alert = [NSAlertCheckbox alertWithMessageText:
+                                  NSLocalizedString(@"Default RSS & ATOM reader", nil)
+                                                         defaultButton:
+                                  NSLocalizedString(@"Make default", nil)
+                                                       alternateButton:
+                                  NSLocalizedString(@"Cancel", nil)
+                                                           otherButton:nil
+                                                       informativeText:
+                                  NSLocalizedString(@"FeedWizard is not currently set as your default RSS & ATOM reader.", nil)];
+        
+        [alert setShowsCheckbox:YES];
+        [alert setCheckboxText:NSLocalizedString(@"Don't ask me again.", nil)];
+        [alert setCheckboxState:NSOffState];
+        
+        if ([alert runModal] == NSAlertDefaultReturn) 
+            LSSetDefaultHandlerForURLScheme((CFStringRef)@"feed", (CFStringRef)bundleID);
+        
+        if ([alert checkboxState] == NSOnState) 
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:OptDoNotAskAboutDefaultReader];
+    }
 }
 
 - (void)reloadData:(NSNotification *)notification
@@ -142,17 +187,19 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     else
         return;
     
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Are you really want to unsubscribe?" 
-                                     defaultButton:NSLocalizedString(@"Cancel", @"") 
-								   alternateButton:NSLocalizedString(@"Unsubscribe", @"") otherButton:nil 
-						 informativeTextWithFormat:NSLocalizedString(@"Subscribtion can not be restored.", @"")];
-	[[alert window] setTitle:[NSString stringWithFormat:@"Unsubscribe %@", feed.title]];
+    NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Are you really want to unsubscribe?", nil)
+                                     defaultButton:NSLocalizedString(@"Cancel", nil) 
+								   alternateButton:NSLocalizedString(@"Unsubscribe", nil) 
+                                       otherButton:nil 
+						 informativeTextWithFormat:NSLocalizedString(@"Subscribtion can not be restored.", nil)];
+	[[alert window] setTitle:[NSString stringWithFormat:NSLocalizedString(@"Unsubscribe %@", nil), feed.title]];
 	NSInteger button = [alert runModal];
 	
 	if (button == NSAlertAlternateReturn) 
     {
         PSClient *client = [PSClient applicationClient];
         if (![client removeFeed:feed.feed])
+            // TODO: better error checking
             NSLog(@"Can not unsubscribe feed");
         NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
         [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed.feed];
@@ -230,6 +277,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     {
         OPMLParser *parser = [[OPMLParser alloc] init];
         if (![parser parseFileAtURL:[openPanel URL]])
+            // TODO: better error checking
             NSLog(@"Can not parse ompl file");
         
         PSClient *client = [PSClient applicationClient];
