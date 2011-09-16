@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  FeedWizard
+
+  Created by Sasha Kurylenko on 9/14/11.
+  Copyright 2011 Wunderkopf. All rights reserved.
+*/
+"STUFF" = "ОСНОВНЕ";
+"Default RSS & ATOM reader" = "Стандартний RSS і ATOM читач";
+"Make default" = "Зробити основним";
+"Cancel" = "Скасувати";
+"FeedWizard is not currently set as your default RSS & ATOM reader." = "FeedWizard на даний момент не є основною програмою для читання RSS і ATOM.";
+"Don't ask me again." = "Не запитувати знову.";
+"Subscriptions in FeedWizard" = "Підписки з FeedWizard";
+"Are you really want to unsubscribe all feeds?" = "Ви дійсно хочете видписатися від усіх новин?";
+"Unsubscribe" = "Відписатися";
+"Subscribtiones can not be restored." = "Підписки не можливо буде відновити.";
+"Unsubscribe All" = "Відписатися від усього";
+"All" = "Всі";
+"Unread" = "Не прочитані";
+"Are you really want to unsubscribe?" = "Ви дійсно хочете відписатися?";
+"Subscribtion can not be restored." = "Підписку не можливо буде відновити.";
+"Unsubscribe %@" = "Відписатися від %@";
+"No Title" = "Заголовок відсутній";
+"No content" = "Немає нічого";
+"Could not save changes while quitting. Quit anyway?" = "Не можливо зберегти зміни. Вийти все одно?";
+"Quitting now will lose any changes you have made since the last successful save" = "Якщо Ви вийдете зараз, то втратите всі зміни, зроблені з останнього вдалого збереження";
+"Quit anyway" = "Все одно вийти";
+"FEEDS" = "ПОТОКИ НОВИН";
+"Fetching..." = "Завантажується...";
+"Starred" = "З зірочкою";
+"TAGS" = "ТЕГИ";
+"Added %lu entries to '%@' feed" = "Додано %lu елементів до потоку '%@'";
+"New feed entries" = "Нові елементи потоку";
+"Removed %lu entries from '%@' feed" = "Видалено %lu елементів потоку '%@'";
+"Removed feed entries" = "Видалення елементів потоку";

@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  FeedWizard
+
+  Created by Sasha Kurylenko on 9/14/11.
+  Copyright 2011 Wunderkopf. All rights reserved.
+*/
+"STUFF" = "STUFF";
+"Default RSS & ATOM reader" = "Default RSS & ATOM reader";
+"Make default" = "Make default";
+"Cancel" = "Cancel";
+"FeedWizard is not currently set as your default RSS & ATOM reader." = "FeedWizard is not currently set as your default RSS & ATOM reader.";
+"Don't ask me again." = "Don't ask me again.";
+"Subscriptions in FeedWizard" = "Subscriptions in FeedWizard";
+"Are you really want to unsubscribe all feeds?" = "Are you really want to unsubscribe all feeds?";
+"Unsubscribe" = "Unsubscribe";
+"Subscribtiones can not be restored." = "Subscribtiones can not be restored.";
+"Unsubscribe All" = "Unsubscribe All";
+"All" = "All";
+"Unread" = "Unread";
+"Are you really want to unsubscribe?" = "Are you really want to unsubscribe?";
+"Subscribtion can not be restored." = "Subscribtion can not be restored.";
+"Unsubscribe %@" = "Unsubscribe %@";
+"No Title" = "No Title";
+"No content" = "No content";
+"Could not save changes while quitting. Quit anyway?" = "Could not save changes while quitting. Quit anyway?";
+"Quitting now will lose any changes you have made since the last successful save" = "Quitting now will lose any changes you have made since the last successful save";
+"Quit anyway" = "Quit anyway";
+"FEEDS" = "FEEDS";
+"Fetching..." = "Fetching...";
+"Starred" = "Starred";
+"TAGS" = "TAGS";
+"Added %lu entries to '%@' feed" = "Added %lu entries to '%@' feed";
+"New feed entries" = "New feed entries";
+"Removed %lu entries from '%@' feed" = "Removed %lu entries from '%@' feed";
+"Removed feed entries" = "Removed feed entries";

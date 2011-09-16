@@ -48,7 +48,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 240}, {383, 115}}</string>
 				<int key="NSWTFlags">544736256</int>
-				<string key="NSWindowTitle">Subscribe Window</string>
+				<string key="NSWindowTitle">Вікно підписки</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
@@ -60,7 +60,7 @@
 						<object class="NSTextField" id="850940830">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 78}, {87, 17}}</string>
+							<string key="NSFrame">{{17, 78}, {108, 17}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSNextKeyView" ref="700307160"/>
 							<string key="NSReuseIdentifierKey">_NS:3936</string>
@@ -68,7 +68,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="941662069">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Subscribe to:</string>
+								<string key="NSContents">Підписатися на:</string>
 								<object class="NSFont" key="NSSupport" id="967633529">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -109,7 +109,7 @@
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="967633529"/>
-								<string key="NSPlaceholderString">Type subscription url here...</string>
+								<string key="NSPlaceholderString">Введіть адресу підписки...</string>
 								<string key="NSCellIdentifier">_NS:248</string>
 								<reference key="NSControlView" ref="700307160"/>
 								<bool key="NSDrawsBackground">YES</bool>
@@ -133,7 +133,7 @@
 						<object class="NSButton" id="782950301">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">289</int>
-							<string key="NSFrame">{{268, 12}, {101, 32}}</string>
+							<string key="NSFrame">{{262, 12}, {107, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:161</string>
@@ -141,7 +141,7 @@
 							<object class="NSButtonCell" key="NSCell" id="176007781">
 								<int key="NSCellFlags">604110336</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Subscribe</string>
+								<string key="NSContents">Підписатися</string>
 								<reference key="NSSupport" ref="967633529"/>
 								<string key="NSCellIdentifier">_NS:161</string>
 								<reference key="NSControlView" ref="782950301"/>
@@ -156,7 +156,7 @@
 						<object class="NSButton" id="89978447">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">289</int>
-							<string key="NSFrame">{{167, 12}, {101, 32}}</string>
+							<string key="NSFrame">{{155, 12}, {107, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSNextKeyView" ref="513458657"/>
 							<string key="NSReuseIdentifierKey">_NS:161</string>
@@ -164,7 +164,7 @@
 							<object class="NSButtonCell" key="NSCell" id="40208252">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Cancel</string>
+								<string key="NSContents">Скасувати</string>
 								<reference key="NSSupport" ref="967633529"/>
 								<string key="NSCellIdentifier">_NS:161</string>
 								<reference key="NSControlView" ref="89978447"/>
@@ -308,9 +308,9 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="850940830"/>
 							<reference ref="700307160"/>
+							<reference ref="513458657"/>
 							<reference ref="782950301"/>
 							<reference ref="89978447"/>
-							<reference ref="513458657"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>

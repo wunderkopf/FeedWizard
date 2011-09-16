@@ -31,7 +31,12 @@
 		D983739A14178D3700321CA9 /* MainWindowController-NSTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D983739914178D3600321CA9 /* MainWindowController-NSTableViewDelegate.m */; };
 		D983739D14178F1300321CA9 /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D983739C14178F1200321CA9 /* NSArray+Extensions.m */; };
 		D983739F1417A4ED00321CA9 /* feed-default.png in Resources */ = {isa = PBXBuildFile; fileRef = D983739E1417A4ED00321CA9 /* feed-default.png */; };
-		D984007A141CC29C006B0BEA /* article.html in Resources */ = {isa = PBXBuildFile; fileRef = D9840078141CC29C006B0BEA /* article.html */; };
+		D985123B1420E1630040103D /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D985123A1420E1630040103D /* Growl.framework */; };
+		D985123C1420E1850040103D /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D985123A1420E1630040103D /* Growl.framework */; };
+		D985123F1420E19F0040103D /* NotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985123E1420E19F0040103D /* NotifyController.m */; };
+		D98512481420E8F80040103D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D985124A1420E8F80040103D /* Localizable.strings */; };
+		D98512501420EA3B0040103D /* article.html in Resources */ = {isa = PBXBuildFile; fileRef = D98512511420EA3B0040103D /* article.html */; };
+		D98CE77514235EE4007DEABE /* NSAlert+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CE77414235EE4007DEABE /* NSAlert+Extensions.m */; };
 		D99537EE141F68AB00E2477E /* TagsSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D99537ED141F68AB00E2477E /* TagsSourceListItem.m */; };
 		D99537F2141F71A700E2477E /* EntrySettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99537F1141F71A700E2477E /* EntrySettingsWindowController.m */; };
 		D99537F5141F71C100E2477E /* EntrySettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99537F3141F71C100E2477E /* EntrySettingsWindow.xib */; };
@@ -53,6 +58,7 @@
 		D99F493E141A51DB0098B8C3 /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F493D141A51DB0098B8C3 /* INAppStoreWindow.m */; };
 		D9A9FA32141A030D0096951F /* SubscribeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A9FA31141A030D0096951F /* SubscribeWindowController.m */; };
 		D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A9FA33141A032E0096951F /* SubscribeWindow.xib */; };
+		D9B191E91420803500B84B89 /* OPMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B191E81420803500B84B89 /* OPMLParser.m */; };
 		D9C03CC4140E6E4700B828EB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C03CC3140E6E4700B828EB /* Cocoa.framework */; };
 		D9C03CCE140E6E4700B828EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CCC140E6E4700B828EB /* InfoPlist.strings */; };
 		D9C03CD0140E6E4700B828EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CCF140E6E4700B828EB /* main.m */; };
@@ -93,6 +99,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D985123C1420E1850040103D /* Growl.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +150,22 @@
 		D983739B14178F1100321CA9 /* NSArray+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extensions.h"; sourceTree = "<group>"; };
 		D983739C14178F1200321CA9 /* NSArray+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extensions.m"; sourceTree = "<group>"; };
 		D983739E1417A4ED00321CA9 /* feed-default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feed-default.png"; sourceTree = "<group>"; };
-		D9840079141CC29C006B0BEA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/article.html; sourceTree = "<group>"; };
+		D985123A1420E1630040103D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "../Growl 1.2.2 SDK/Frameworks/Growl.framework"; sourceTree = "<group>"; };
+		D985123D1420E19F0040103D /* NotifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyController.h; sourceTree = "<group>"; };
+		D985123E1420E19F0040103D /* NotifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyController.m; sourceTree = "<group>"; };
+		D98512401420E85B0040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D98512411420E8870040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/EntrySettingsWindow.xib; sourceTree = "<group>"; };
+		D98512421420E88E0040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/FeedSettingsWindow.xib; sourceTree = "<group>"; };
+		D98512431420E8940040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/SubscribeWindow.xib; sourceTree = "<group>"; };
+		D98512441420E89A0040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/LoginWindow.xib; sourceTree = "<group>"; };
+		D98512451420E8A20040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D98512491420E8F80040103D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D985124B1420E8FC0040103D /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/SubscribeWindowController.h; sourceTree = "<group>"; };
+		D985124D1420E9030040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D985124E1420E9530040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = uk; path = uk.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D98512511420EA3B0040103D /* article.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = article.html; sourceTree = "<group>"; };
+		D98CE77314235EE4007DEABE /* NSAlert+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+Extensions.h"; sourceTree = "<group>"; };
+		D98CE77414235EE4007DEABE /* NSAlert+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+Extensions.m"; sourceTree = "<group>"; };
 		D99537EC141F68AB00E2477E /* TagsSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagsSourceListItem.h; path = FeedWizard/TagsSourceListItem.h; sourceTree = SOURCE_ROOT; };
 		D99537ED141F68AB00E2477E /* TagsSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagsSourceListItem.m; path = FeedWizard/TagsSourceListItem.m; sourceTree = SOURCE_ROOT; };
 		D99537F0141F71A700E2477E /* EntrySettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySettingsWindowController.h; sourceTree = "<group>"; };
@@ -175,9 +197,10 @@
 		D99BE4D3140FCFA70016120F /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		D99F493C141A51DB0098B8C3 /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
 		D99F493D141A51DB0098B8C3 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
-		D9A9FA30141A030D0096951F /* SubscribeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeWindowController.h; sourceTree = "<group>"; };
 		D9A9FA31141A030D0096951F /* SubscribeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeWindowController.m; sourceTree = "<group>"; };
 		D9A9FA34141A032E0096951F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubscribeWindow.xib; sourceTree = "<group>"; };
+		D9B191E71420803500B84B89 /* OPMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMLParser.h; sourceTree = "<group>"; };
+		D9B191E81420803500B84B89 /* OPMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMLParser.m; sourceTree = "<group>"; };
 		D9C03CBF140E6E4700B828EB /* FeedWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C03CC3140E6E4700B828EB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D9C03CC6140E6E4700B828EB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -208,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D985123B1420E1630040103D /* Growl.framework in Frameworks */,
 				D9837385141745A200321CA9 /* PubSub.framework in Frameworks */,
 				D99BE4A7140FACEB0016120F /* WebKit.framework in Frameworks */,
 				D9C03CC4140E6E4700B828EB /* Cocoa.framework in Frameworks */,
@@ -321,6 +345,8 @@
 		D995381C141F8A2400E2477E /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				D985123D1420E19F0040103D /* NotifyController.h */,
+				D985123E1420E19F0040103D /* NotifyController.m */,
 				D9457A9B1418DCBC008D59B9 /* Entry.h */,
 				D9457A9C1418DCBD008D59B9 /* Entry.m */,
 				D99537F6141F764C00E2477E /* EntryTableView.h */,
@@ -331,6 +357,10 @@
 				D983739C14178F1200321CA9 /* NSArray+Extensions.m */,
 				D95547C1141E336900623802 /* NSImage+Extensions.h */,
 				D95547C2141E337500623802 /* NSImage+Extensions.m */,
+				D9B191E71420803500B84B89 /* OPMLParser.h */,
+				D9B191E81420803500B84B89 /* OPMLParser.m */,
+				D98CE77314235EE4007DEABE /* NSAlert+Extensions.h */,
+				D98CE77414235EE4007DEABE /* NSAlert+Extensions.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -402,7 +432,7 @@
 		D9A9FA061419F8C30096951F /* Subscribe Window */ = {
 			isa = PBXGroup;
 			children = (
-				D9A9FA30141A030D0096951F /* SubscribeWindowController.h */,
+				D985124C1420E8FC0040103D /* SubscribeWindowController.h */,
 				D9A9FA31141A030D0096951F /* SubscribeWindowController.m */,
 				D9A9FA33141A032E0096951F /* SubscribeWindow.xib */,
 			);
@@ -440,6 +470,7 @@
 		D9C03CC2140E6E4700B828EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D985123A1420E1630040103D /* Growl.framework */,
 				D9837384141745A200321CA9 /* PubSub.framework */,
 				D9C03CC3140E6E4700B828EB /* Cocoa.framework */,
 				D99BE4A6140FACEB0016120F /* WebKit.framework */,
@@ -488,7 +519,8 @@
 				D9C03CCF140E6E4700B828EB /* main.m */,
 				D9C03CD1140E6E4700B828EB /* FeedWizard-Prefix.pch */,
 				D9C03CD2140E6E4700B828EB /* Credits.rtf */,
-				D9840078141CC29C006B0BEA /* article.html */,
+				D98512511420EA3B0040103D /* article.html */,
+				D985124A1420E8F80040103D /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -546,6 +578,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				uk,
 			);
 			mainGroup = D9C03CB4140E6E4600B828EB;
 			productRefGroup = D9C03CC0140E6E4700B828EB /* Products */;
@@ -595,13 +628,14 @@
 				D99BE4D1140FC1910016120F /* LoginWindow.xib in Resources */,
 				D983739F1417A4ED00321CA9 /* feed-default.png in Resources */,
 				D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */,
-				D984007A141CC29C006B0BEA /* article.html in Resources */,
+				D98512501420EA3B0040103D /* article.html in Resources */,
 				D95547BD141DF9FB00623802 /* star-enabled.png in Resources */,
 				D9C5E452141F427E007A38B3 /* fw.icns in Resources */,
 				D9C5E458141F467B007A38B3 /* FeedSettingsWindow.xib in Resources */,
 				D9CF2B64141F576B0014B36A /* atom-feed.png in Resources */,
 				D9CF2B66141F57760014B36A /* rss-feed.png in Resources */,
 				D99537F5141F71C100E2477E /* EntrySettingsWindow.xib in Resources */,
+				D98512481420E8F80040103D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,24 +703,37 @@
 				D99537F2141F71A700E2477E /* EntrySettingsWindowController.m in Sources */,
 				D99537F8141F764D00E2477E /* EntryTableView.m in Sources */,
 				D995381A141F88AA00E2477E /* MainWindowController-NSSplitViewDelegate.m in Sources */,
+				D9B191E91420803500B84B89 /* OPMLParser.m in Sources */,
+				D985123F1420E19F0040103D /* NotifyController.m in Sources */,
+				D98CE77514235EE4007DEABE /* NSAlert+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D9840078141CC29C006B0BEA /* article.html */ = {
+		D985124A1420E8F80040103D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D9840079141CC29C006B0BEA /* en */,
+				D98512491420E8F80040103D /* en */,
+				D985124D1420E9030040103D /* uk */,
 			);
-			name = article.html;
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D985124C1420E8FC0040103D /* SubscribeWindowController.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D985124B1420E8FC0040103D /* en */,
+			);
+			name = SubscribeWindowController.h;
 			sourceTree = "<group>";
 		};
 		D99537F3141F71C100E2477E /* EntrySettingsWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D99537F4141F71C100E2477E /* en */,
+				D98512411420E8870040103D /* uk */,
 			);
 			name = EntrySettingsWindow.xib;
 			sourceTree = "<group>";
@@ -695,6 +742,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D99BE4D0140FC1910016120F /* en */,
+				D98512441420E89A0040103D /* uk */,
 			);
 			name = LoginWindow.xib;
 			sourceTree = "<group>";
@@ -703,6 +751,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9A9FA34141A032E0096951F /* en */,
+				D98512431420E8940040103D /* uk */,
 			);
 			name = SubscribeWindow.xib;
 			sourceTree = "<group>";
@@ -719,6 +768,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9C03CD3140E6E4700B828EB /* en */,
+				D985124E1420E9530040103D /* uk */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -727,6 +777,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9C03CD9140E6E4700B828EB /* en */,
+				D98512451420E8A20040103D /* uk */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -735,6 +786,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9C03CEC140E729C00B828EB /* en */,
+				D98512401420E85B0040103D /* uk */,
 			);
 			name = MainWindow.xib;
 			sourceTree = "<group>";
@@ -743,6 +795,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9C5E457141F467B007A38B3 /* en */,
+				D98512421420E88E0040103D /* uk */,
 			);
 			name = FeedSettingsWindow.xib;
 			sourceTree = "<group>";
@@ -798,6 +851,10 @@
 		D9C03CE1140E6E4700B828EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Growl 1.2.2 SDK/Frameworks\"",
+				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FeedWizard/FeedWizard-Prefix.pch";
@@ -810,6 +867,10 @@
 		D9C03CE2140E6E4700B828EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Growl 1.2.2 SDK/Frameworks\"",
+				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FeedWizard/FeedWizard-Prefix.pch";
