@@ -38,10 +38,11 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender 
 {
-    if ([[Storage sharedStorage] close])
+/*    if ([[Storage sharedStorage] close])
         return NSTerminateNow;
     else
-        return NSTerminateCancel;
+        return NSTerminateCancel;*/
+    return NSTerminateNow;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
