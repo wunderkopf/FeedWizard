@@ -14,6 +14,7 @@ NSString * const FeedDidEndRefreshNotification = @"FeedDidEndRefreshNotification
 NSString * const ReloadDataNotification = @"ReloadDataNotification";
 
 NSString * const OptDisplayArticlesState = @"DisplayArticlesState";
+NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
 
 @implementation AppDelegate
 
@@ -70,7 +71,8 @@ NSString * const OptDisplayArticlesState = @"DisplayArticlesState";
         [root addAttribute:[NSXMLNode attributeWithName:@"version" stringValue:@"1.0"]];
         
         NSXMLElement *head = [[NSXMLElement alloc] initWithName:@"head"];
-        NSXMLElement *title = [[NSXMLElement alloc] initWithName:@"title" stringValue:@"Subscriptions in FeedWizard"];
+        NSXMLElement *title = [[NSXMLElement alloc] initWithName:@"title" stringValue:
+                               NSLocalizedString(@"Subscriptions in FeedWizard", nil)];
         [head addChild:title];
         [root addChild:head];
         
@@ -113,11 +115,12 @@ NSString * const OptDisplayArticlesState = @"DisplayArticlesState";
 
 - (IBAction)doUnsubsribeAll:(id)sender
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Are you really want to unsubscribe all feeds?" 
-                                     defaultButton:NSLocalizedString(@"Cancel", @"") 
-								   alternateButton:NSLocalizedString(@"Unsubscribe", @"") otherButton:nil 
-						 informativeTextWithFormat:NSLocalizedString(@"Subscribtiones can not be restored.", @"")];
-	[[alert window] setTitle:[NSString stringWithString:@"Unsubscribe All"]];
+    NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Are you really want to unsubscribe all feeds?", nil) 
+                                     defaultButton:NSLocalizedString(@"Cancel", nil) 
+								   alternateButton:NSLocalizedString(@"Unsubscribe", nil) 
+                                       otherButton:nil 
+						 informativeTextWithFormat:NSLocalizedString(@"Subscribtiones can not be restored.", nil)];
+	[[alert window] setTitle:[NSString stringWithString:NSLocalizedString(@"Unsubscribe All", nil)]];
 	NSInteger button = [alert runModal];
 	
 	if (button == NSAlertAlternateReturn) 
