@@ -48,7 +48,7 @@ static Storage *_sharedStorage = nil;
 	if (self != nil) 
     {
 		// Needs to create data file
-		[_sharedStorage managedObjectContext];
+		//[_sharedStorage managedObjectContext];
         _loadQueue = [[NSOperationQueue alloc] init];
 		[_loadQueue setName:[[NSBundle mainBundle] bundleIdentifier]];
 	}
@@ -265,6 +265,13 @@ static Storage *_sharedStorage = nil;
         NSError *error = nil;
         if (![path checkResourceIsReachableAndReturnError:&error])
         {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [NSNumber numberWithBool:YES], NSFileExtensionHidden, nil];
+            NSURL *imagesFilesDirectory = [self imagesFilesDirectory];
+            [fileManager createDirectoryAtPath:[imagesFilesDirectory path] 
+                        withIntermediateDirectories:YES attributes:attributes error:&error];
+            
             PSFeed *feed = [[PSClient applicationClient] feedWithIdentifier:identifier];
             NSURL *faviconURL = [NSURL URLWithString: @"/favicon.ico" relativeToURL:feed.alternateURL];
             NSImage *logo = [[NSImage alloc] initWithContentsOfURL:faviconURL];
