@@ -19,8 +19,6 @@
 #import "FeedSettingsWindowController.h"
 #import "EntrySettingsWindowController.h"
 
-#import "INAppStoreWindow.h"
-
 #import "AMButtonBar.h"
 #import "AMButtonBarItem.h"
 #import "NSGradient_AMButtonBar.h"
@@ -133,9 +131,6 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 
 - (void)showWindow:(id)sender
 {
-    INAppStoreWindow *window = (INAppStoreWindow *)self.window;
-    window.titleBarHeight = 10.0;
-    
     [super showWindow:sender];
     
     NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
