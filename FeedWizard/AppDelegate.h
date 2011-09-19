@@ -7,11 +7,13 @@
 //
 
 @class MainWindowController;
+@class PreferencesWindowController;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> 
 {
 @private
     MainWindowController *_mainWindowController;
+    PreferencesWindowController *_preferencesWindowController;
 }
 
 @property (assign) MainWindowController *mainWindowController;
@@ -21,5 +23,6 @@
 - (IBAction)doUnsubsribeAll:(id)sender;
 - (IBAction)doSubscribe:(id)sender;
 - (IBAction)doUnsubscribe:(id)sender;
+- (IBAction)doPreferences:(id)sender;
 
 @end

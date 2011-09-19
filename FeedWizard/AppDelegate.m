@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainWindowController.h"
+#import "PreferencesWindowController.h"
 #import "Storage.h"
 
 NSString * const FeedDidEndRefreshNotification = @"FeedDidEndRefreshNotification";
@@ -31,6 +32,7 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
             [client setPrivate:YES];
         
         _mainWindowController = [[MainWindowController alloc] init];
+        _preferencesWindowController = [[PreferencesWindowController alloc] init];
     }
 	
     return self;
@@ -148,6 +150,11 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
 - (IBAction)doUnsubscribe:(id)sender
 {
     [_mainWindowController doUnsubscribe:sender];
+}
+
+- (IBAction)doPreferences:(id)sender
+{
+    [_preferencesWindowController showWindow:sender];
 }
 
 @end
