@@ -36,6 +36,8 @@
     FeedSettingsWindowController *_feedSettingsWindowController;
     EntrySettingsWindowController *_entrySettingsWindowController;
     NSMenu *_entryMenu;
+    BOOL _runSubscribe;
+    NSString *_subscriptionURL;
 }
 
 @property (assign) IBOutlet NSSplitView *mainSplitView;

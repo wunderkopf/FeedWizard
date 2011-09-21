@@ -47,6 +47,9 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     
     if (self != nil) 
     {
+        _runSubscribe = NO;
+        _subscriptionURL = [NSString string];
+        
         NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
         [notifyCenter addObserver:self selector:@selector(reloadData:) name:ReloadDataNotification object:nil];
         
@@ -91,13 +94,6 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
     return self;
 }
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    
-    [_entriesScrollView setScrollerStyle:NSScrollerStyleOverlay];
-}
-
 - (void)windowDidLoad
 {
     [super windowDidLoad];
@@ -121,12 +117,17 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 }
 
 - (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent
-{
-    NSString *subscriptionURL = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+{    
+    if ([self.window isVisible])
+    {
+        NSString *subscriptionURL = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+        [self doSubscribe:nil];
+        _subscribeWindowController.urlTextField.stringValue = subscriptionURL;
+        [_subscribeWindowController.subscribeButton setEnabled:YES];
+    }
     
-    [self doSubscribe:nil];
-    _subscribeWindowController.urlTextField.stringValue = subscriptionURL;
-    [_subscribeWindowController.subscribeButton setEnabled:YES];
+    _subscriptionURL = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+    _runSubscribe = YES;
 }
 
 - (void)showWindow:(id)sender
@@ -159,6 +160,14 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         
         if ([alert checkboxState] == NSOnState) 
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:OptDoNotAskAboutDefaultReader];
+    }
+    
+    if (_runSubscribe)
+    {
+        [self doSubscribe:nil];
+        _subscribeWindowController.urlTextField.stringValue = _subscriptionURL;
+        [_subscribeWindowController.subscribeButton setEnabled:YES];
+        _runSubscribe = NO;
     }
 }
 
