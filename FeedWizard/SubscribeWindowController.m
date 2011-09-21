@@ -46,9 +46,9 @@
     [_waitProgressIndicator startAnimation:sender];
     PSClient *client = [PSClient applicationClient];
     NSMutableString *urlString = [NSMutableString stringWithString:[_urlTextField stringValue]];
-    if ([[urlString substringWithRange:NSMakeRange(0, 6)] compare:@"http://"] != NSOrderedSame &&
-        [[urlString substringWithRange:NSMakeRange(0, 7)] compare:@"https://"] != NSOrderedSame &&
-        [[urlString substringWithRange:NSMakeRange(0, 6)] compare:@"feed://"] != NSOrderedSame)
+    if ([[urlString substringWithRange:NSMakeRange(0, 7)] compare:@"http://"] != NSOrderedSame &&
+        [[urlString substringWithRange:NSMakeRange(0, 8)] compare:@"https://"] != NSOrderedSame &&
+        [[urlString substringWithRange:NSMakeRange(0, 7)] compare:@"feed://"] != NSOrderedSame)
     {
         [urlString insertString:@"feed://" atIndex:0];
     }
