@@ -18,4 +18,15 @@ extern NSString * const ReloadDataNotification;
 // Options
 extern NSString * const OptDisplayArticlesState; // YES - all items, NO - only unread
 extern NSString * const OptDoNotAskAboutDefaultReader; // YES or NO
+
+#ifdef DEBUG
+#define Debug(format, ...) NSLog(@"<Debug>: " format, ##__VA_ARGS__)
+#else
+#define Debug(format, ...)
+#endif
+
+#define Warn(format, ...) NSLog(@"<Warning>: " format, ##__VA_ARGS__)
+#define Error(format, ...) NSLog(@"<Error>: " format, ##__VA_ARGS__)
+#define Info(format, ...) NSLog(@"<Info>: " format, ##__VA_ARGS__)
+
 #endif
