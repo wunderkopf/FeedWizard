@@ -17,13 +17,14 @@
     BOOL displayState = [[NSUserDefaults standardUserDefaults] boolForKey:OptDisplayArticlesState];
     PSClient *client = [PSClient applicationClient];
     NSArray *feeds = [client feeds];
-    __block NSInteger unreadCount = 0;
+    //__block NSInteger unreadCount = 0;
+    _unreadCount = 0;
     _items = nil;
     _items = [NSMutableArray array];
     
     [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
         PSFeed *feed = item;
-        unreadCount += feed.unreadCount;
+        _unreadCount += feed.unreadCount;
         
         __block NSMutableArray *entries = [NSMutableArray array];
         
@@ -40,13 +41,6 @@
         
         [_items addObjectsFromArray:entries];
     }];
-    
-    if (unreadCount > 0)
-    {
-        self.badge = unreadCount;
-        NSDockTile *tile = [[NSApplication sharedApplication] dockTile];
-        [tile setBadgeLabel:[NSString stringWithFormat:@"%d", unreadCount]];
-    }
 }
 
 - (id)init
@@ -65,6 +59,22 @@
     }
     
     return self;
+}
+
+- (NSInteger)badge
+{    return _unreadCount;
+}
+
+- (BOOL)hasBadge
+{
+    NSDockTile *tile = [[NSApplication sharedApplication] dockTile];
+    
+    if (_unreadCount > 0)
+        [tile setBadgeLabel:[NSString stringWithFormat:@"%d", _unreadCount]];
+    else
+        [tile setBadgeLabel:@""];
+
+    return _unreadCount > 0;
 }
 
 - (void)dataChanged:(NSNotification *)notification

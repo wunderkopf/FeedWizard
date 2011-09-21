@@ -9,5 +9,9 @@
 #import "SourceListItem.h"
 
 @interface AllSourceListItem : SourceListItem
+{
+@private
+    NSInteger _unreadCount;
+}
 
 @end
