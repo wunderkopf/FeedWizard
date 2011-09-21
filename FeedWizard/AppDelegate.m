@@ -27,12 +27,17 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
     
     if (self != nil) 
     {
+        NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *logPath = [libraryPath stringByAppendingPathComponent:@"Logs/FeedWizard.log"];
+        freopen([logPath fileSystemRepresentation], "a", stderr);
+        
         PSClient *client = [PSClient applicationClient];
         if (![client isPrivate])
             [client setPrivate:YES];
         
         _mainWindowController = [[MainWindowController alloc] init];
         _preferencesWindowController = [[PreferencesWindowController alloc] init];
+        Info(@"FeedWizard %@ lunched successfully.", [self appVersionNumber]);
     }
 	
     return self;
@@ -40,10 +45,10 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender 
 {
-/*    if ([[Storage sharedStorage] close])
-        return NSTerminateNow;
-    else
-        return NSTerminateCancel;*/
+    /*    if ([[Storage sharedStorage] close])
+     return NSTerminateNow;
+     else
+     return NSTerminateCancel;*/
     return NSTerminateNow;
 }
 
@@ -155,6 +160,13 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
 - (IBAction)doPreferences:(id)sender
 {
     [_preferencesWindowController showWindow:sender];
+}
+
++ (NSString *)appVersionNumber
+{
+    return [NSString stringWithFormat:@"%@b%@", 
+            [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], 
+            [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"]];
 }
 
 @end

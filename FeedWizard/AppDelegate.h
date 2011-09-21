@@ -25,4 +25,6 @@
 - (IBAction)doUnsubscribe:(id)sender;
 - (IBAction)doPreferences:(id)sender;
 
++ (NSString *)appVersionNumber;
+
 @end
