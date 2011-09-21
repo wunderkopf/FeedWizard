@@ -54,7 +54,7 @@
 		D99BE4CE140FBF080016120F /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4CD140FBF080016120F /* LoginWindowController.m */; };
 		D99BE4D1140FC1910016120F /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99BE4CF140FC1910016120F /* LoginWindow.xib */; };
 		D99BE4D4140FCFA70016120F /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4D3140FCFA70016120F /* Storage.m */; };
-		D99F493E141A51DB0098B8C3 /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F493D141A51DB0098B8C3 /* INAppStoreWindow.m */; };
+		D99C5E6D1427617B00E53074 /* rss-preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C5E6C1427617B00E53074 /* rss-preferences.png */; };
 		D9A9FA32141A030D0096951F /* SubscribeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A9FA31141A030D0096951F /* SubscribeWindowController.m */; };
 		D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A9FA33141A032E0096951F /* SubscribeWindow.xib */; };
 		D9B191E91420803500B84B89 /* OPMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B191E81420803500B84B89 /* OPMLParser.m */; };
@@ -108,6 +108,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D9267C571429F15A004CC2E6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		D9457A961418C65A008D59B9 /* MainWindowController-PSClientDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MainWindowController-PSClientDelegate.m"; sourceTree = "<group>"; };
 		D9457A981418CC72008D59B9 /* AllSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllSourceListItem.h; path = FeedWizard/AllSourceListItem.h; sourceTree = SOURCE_ROOT; };
 		D9457A991418CC72008D59B9 /* AllSourceListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllSourceListItem.m; path = FeedWizard/AllSourceListItem.m; sourceTree = SOURCE_ROOT; };
@@ -194,8 +195,7 @@
 		D99BE4D0140FC1910016120F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LoginWindow.xib; sourceTree = "<group>"; };
 		D99BE4D2140FCFA70016120F /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		D99BE4D3140FCFA70016120F /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
-		D99F493C141A51DB0098B8C3 /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
-		D99F493D141A51DB0098B8C3 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
+		D99C5E6C1427617B00E53074 /* rss-preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-preferences.png"; sourceTree = "<group>"; };
 		D9A9FA31141A030D0096951F /* SubscribeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeWindowController.m; sourceTree = "<group>"; };
 		D9A9FA34141A032E0096951F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubscribeWindow.xib; sourceTree = "<group>"; };
 		D9B191E71420803500B84B89 /* OPMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMLParser.h; sourceTree = "<group>"; };
@@ -226,7 +226,6 @@
 		D9CF609F142387120011419E /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		D9CF60A0142387120011419E /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		D9CF60A3142387350011419E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
-		D9CF60A5142387440011419E /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		D9CF60A6142388D90011419E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -330,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				D99BE4A8140FB1E40016120F /* PXSourceList */,
-				D99F493B141A51DB0098B8C3 /* INAppStoreWindow */,
 				D9554799141DEAE600623802 /* AMButtonBar */,
 			);
 			name = "3d Party";
@@ -392,6 +390,7 @@
 		D99BE4C0140FBB180016120F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D99C5E6C1427617B00E53074 /* rss-preferences.png */,
 				D9CF2B65141F57760014B36A /* rss-feed.png */,
 				D9CF2B63141F576B0014B36A /* atom-feed.png */,
 				D9C5E451141F427E007A38B3 /* fw.icns */,
@@ -412,15 +411,6 @@
 				D99BE4CF140FC1910016120F /* LoginWindow.xib */,
 			);
 			name = "Login Window";
-			sourceTree = "<group>";
-		};
-		D99F493B141A51DB0098B8C3 /* INAppStoreWindow */ = {
-			isa = PBXGroup;
-			children = (
-				D99F493C141A51DB0098B8C3 /* INAppStoreWindow.h */,
-				D99F493D141A51DB0098B8C3 /* INAppStoreWindow.m */,
-			);
-			path = INAppStoreWindow;
 			sourceTree = "<group>";
 		};
 		D9A9FA061419F8C30096951F /* Subscribe Window */ = {
@@ -642,6 +632,7 @@
 				D99537F5141F71C100E2477E /* EntrySettingsWindow.xib in Resources */,
 				D98512481420E8F80040103D /* Localizable.strings in Resources */,
 				D9CF60A4142387350011419E /* PreferencesWindow.xib in Resources */,
+				D99C5E6D1427617B00E53074 /* rss-preferences.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +682,6 @@
 				D9457A9A1418CC72008D59B9 /* AllSourceListItem.m in Sources */,
 				D9457A9D1418DCBD008D59B9 /* Entry.m in Sources */,
 				D9A9FA32141A030D0096951F /* SubscribeWindowController.m in Sources */,
-				D99F493E141A51DB0098B8C3 /* INAppStoreWindow.m in Sources */,
 				D95547AD141DEAE600623802 /* AMButtonBar.m in Sources */,
 				D95547AE141DEAE600623802 /* AMButtonBarCell.m in Sources */,
 				D95547AF141DEAE600623802 /* AMButtonBarItem.m in Sources */,
@@ -811,7 +801,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9CF60A3142387350011419E /* en */,
-				D9CF60A5142387440011419E /* uk */,
+				D9267C571429F15A004CC2E6 /* uk */,
 			);
 			name = PreferencesWindow.xib;
 			sourceTree = "<group>";
