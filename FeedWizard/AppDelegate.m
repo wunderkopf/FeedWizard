@@ -37,7 +37,7 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
         
         _mainWindowController = [[MainWindowController alloc] init];
         _preferencesWindowController = [[PreferencesWindowController alloc] init];
-        Info(@"FeedWizard %@ lunched successfully.", [self appVersionNumber]);
+        Info(@"FeedWizard %@ lunched successfully.", [AppDelegate appVersionNumber]);
     }
 	
     return self;
