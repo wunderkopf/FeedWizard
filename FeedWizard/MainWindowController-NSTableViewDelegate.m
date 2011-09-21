@@ -29,7 +29,9 @@
         articleText = [_articleText stringByReplacingOccurrencesOfString:@"[TITLE]" withString:
                        NSLocalizedString(@"No Title", nil)];
     
-    articleText = [articleText stringByReplacingOccurrencesOfString:@"[DATE]" withString:entry.dateForDisplay.description];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%A, %B %d, %Y %H:%M" allowNaturalLanguage:YES];
+    NSString *dateString = [dateFormatter stringFromDate:entry.dateForDisplay];
+    articleText = [articleText stringByReplacingOccurrencesOfString:@"[DATE]" withString:dateString];
     
     if ([entry.content length] > 0)
         articleText = [articleText stringByReplacingOccurrencesOfString:@"[CONTENT]" withString:entry.content];
