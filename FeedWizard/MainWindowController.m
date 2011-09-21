@@ -204,7 +204,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         PSClient *client = [PSClient applicationClient];
         if (![client removeFeed:feed.feed])
             // TODO: better error checking
-            NSLog(@"Can not unsubscribe feed");
+            Error(@"Can not unsubscribe feed");
         NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
         [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed.feed];
     }
@@ -282,7 +282,7 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         OPMLParser *parser = [[OPMLParser alloc] init];
         if (![parser parseFileAtURL:[openPanel URL]])
             // TODO: better error checking
-            NSLog(@"Can not parse ompl file");
+            Error(@"Can not parse ompl file");
         
         PSClient *client = [PSClient applicationClient];
         NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
