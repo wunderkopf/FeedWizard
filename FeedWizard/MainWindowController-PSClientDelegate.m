@@ -31,7 +31,7 @@
 
 - (void)feed:(PSFeed *)feed didRemoveEntriesWithIdentifiers:(NSArray *)identifiers
 {
-    NSLog(@"Removed %lu entries from '%@' feed", [identifiers count], feed.title);
+    Info(@"Removed %lu entries from '%@' feed", [identifiers count], feed.title);
     NSString *description = [NSString stringWithFormat:NSLocalizedString(@"Removed %lu entries from '%@' feed", nil), [identifiers count], feed.title];
     [[NotifyController sharedNotifyController] infoWithTitle:NSLocalizedString(@"Removed feed entries", nil) andDescription:description];
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
@@ -40,21 +40,21 @@
 
 - (void)feed:(PSFeed *)feed didUpdateEntries:(NSArray *)entries
 {
-    NSLog(@"Updated %lu entries in '%@' feed", [entries count], feed.title);
+    Info(@"Updated %lu entries in '%@' feed", [entries count], feed.title);
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
 }
 
 - (void)feed:(PSFeed *)feed didChangeFlagsInEntries:(NSArray *)entries
 {
-    NSLog(@"Changed flags for %lu entries in '%@' feed", [entries count], feed.title);
+    Info(@"Changed flags for %lu entries in '%@' feed", [entries count], feed.title);
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
 }
 
 - (void)enclosure:(PSEnclosure *)enclosure downloadStateDidChange:(PSEnclosureDownloadState)state
 {
-    NSLog(@"Enclosure '%@' download state changed to %d", enclosure.MIMEType, state);
+    Info(@"Enclosure '%@' download state changed to %d", enclosure.MIMEType, state);
 }
 
 @end
