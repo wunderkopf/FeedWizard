@@ -34,3 +34,5 @@
 "New feed entries" = "New feed entries";
 "Removed %lu entries from '%@' feed" = "Removed %lu entries from '%@' feed";
 "Removed feed entries" = "Removed feed entries";
+"General" = "General";
+"RSS" = "RSS";

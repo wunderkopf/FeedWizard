@@ -34,3 +34,5 @@
 "New feed entries" = "Нові елементи потоку";
 "Removed %lu entries from '%@' feed" = "Видалено %lu елементів потоку '%@'";
 "Removed feed entries" = "Видалення елементів потоку";
+"General" = "Основні";
+"RSS" = "RSS";
