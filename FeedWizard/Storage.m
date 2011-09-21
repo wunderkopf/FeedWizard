@@ -94,7 +94,7 @@ static Storage *_sharedStorage = nil;
     NSManagedObjectModel *mom = [self managedObjectModel];
     if (!mom) 
     {
-        NSLog(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
+        Error(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
         return nil;
     }
     
@@ -181,13 +181,13 @@ static Storage *_sharedStorage = nil;
 {
     if (![_managedObjectContext commitEditing]) 
     {
-        NSLog(@"%@:%@ unable to commit editing", [self class], NSStringFromSelector(_cmd));
+        Error(@"%@:%@ unable to commit editing", [self class], NSStringFromSelector(_cmd));
         return FALSE;
     }
     
     if (![_managedObjectContext hasChanges]) 
     {
-        NSLog(@"Database has not changes");
+        Warn(@"Database has not changes");
         return TRUE;
     }
     
