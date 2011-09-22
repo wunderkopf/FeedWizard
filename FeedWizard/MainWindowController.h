@@ -38,6 +38,8 @@
     NSMenu *_entryMenu;
     BOOL _runSubscribe;
     NSString *_subscriptionURL;
+    NSView *_emptyEntryView;
+    NSView *_webEntryView;
 }
 
 @property (assign) IBOutlet NSSplitView *mainSplitView;
@@ -51,6 +53,8 @@
 @property (assign) IBOutlet NSMenu *feedMenu;
 @property (assign) IBOutlet AMButtonBar *displayModeButtonBar;
 @property (assign) IBOutlet NSMenu *entryMenu;
+@property (assign) IBOutlet NSView *emptyEntryView;
+@property (assign) IBOutlet NSView *webEntryView;
 
 - (IBAction)doSubscribe:(id)sender;
 - (IBAction)doUnsubscribe:(id)sender;
@@ -63,5 +67,9 @@
 - (IBAction)doImportOPML:(id)sender;
 - (IBAction)doMarkAllAsRead:(id)sender;
 - (IBAction)doMarkAllAsUnread:(id)sender;
+
+- (NSView *)leftPane;
+- (NSView *)centerPane;
+- (NSView *)rightPane;
 
 @end

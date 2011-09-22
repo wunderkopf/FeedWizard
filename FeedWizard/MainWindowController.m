@@ -40,6 +40,20 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 @synthesize feedMenu = _feedMenu;
 @synthesize displayModeButtonBar = _displayModeButtonBar;
 @synthesize entryMenu = _entryMenu;
+@synthesize emptyEntryView = _emptyEntryView;
+@synthesize webEntryView = _webEntryView;
+
+- (void)updateSubviewsTransition 
+{
+    /*CATransition *transition = [CATransition animation];
+    [transition setType:kCATransitionFade];
+    [transition setSubtype:kCATransitionFromLeft];
+    [transition setDuration:1.0];
+    [[self rightPane] setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];*/
+    NSAnimation *animation = [[NSAnimation alloc] initWithDuration:1.0 animationCurve:NSAnimationEaseInOut];
+    [animation setAnimationBlockingMode:NSAnimationNonblockingThreaded];
+    [[self rightPane] setAnimations:[NSDictionary dictionaryWithObject:animation forKey:@"subviews"]];
+}
 
 - (id)init
 {
@@ -97,6 +111,12 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    
+    [[self rightPane] setWantsLayer:YES];
+    [self updateSubviewsTransition];
+    	
+	[_emptyEntryView setFrame:[[self rightPane] bounds]];
+	[[self rightPane] addSubview:_emptyEntryView];
     
     BOOL displayState = [[NSUserDefaults standardUserDefaults] boolForKey:OptDisplayArticlesState];
     AMButtonBarItem *item = [[AMButtonBarItem alloc] initWithIdentifier:@"all-items"];
@@ -320,6 +340,21 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         if ([entry isRead])
             entry.read = NO;
     }];
+}
+
+- (NSView *)leftPane
+{
+    return [[_mainSplitView subviews] objectAtIndex:0];
+}
+
+- (NSView *)centerPane
+{
+    return [[_mainSplitView subviews] objectAtIndex:1];
+}
+
+- (NSView *)rightPane
+{
+    return [[_mainSplitView subviews] objectAtIndex:2];
 }
 
 @end

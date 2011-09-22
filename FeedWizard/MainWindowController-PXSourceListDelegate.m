@@ -33,6 +33,13 @@
     
     [_entryArrayController setContent:((SourceListItem *)_currentItem).items];
     [_entryArrayController setSortDescriptors:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"dateForDisplay" ascending:NO]]];
+    
+    if ([[self rightPane] superview] != _emptyEntryView)
+    {
+        [_emptyEntryView setFrame:[[self rightPane] bounds]];
+        [[[self rightPane] animator] replaceSubview:_webView with:_emptyEntryView];
+        Debug(@"After changing to web view we have %lu subviews.", [[[self rightPane] subviews] count]);
+    }
 }
 
 - (void)sourceListDeleteKeyPressedOnRows:(NSNotification *)notification
