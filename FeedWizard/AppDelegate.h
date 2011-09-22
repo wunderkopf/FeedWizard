@@ -24,6 +24,7 @@
 - (IBAction)doSubscribe:(id)sender;
 - (IBAction)doUnsubscribe:(id)sender;
 - (IBAction)doPreferences:(id)sender;
+- (IBAction)doMarkAllAsRead:(id)sender;
 
 + (NSString *)appVersionNumber;
 

@@ -162,6 +162,21 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
     [_preferencesWindowController showWindow:sender];
 }
 
+- (IBAction)doMarkAllAsRead:(id)sender
+{
+    PSClient *client = [PSClient applicationClient];
+    NSArray *feeds = [client feeds];
+    
+    [feeds enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+        PSFeed *feed = item;
+        [[feed entries] enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+            PSEntry *entry = item;
+            if (![entry isRead])
+                entry.read = YES;
+        }];
+    }];
+}
+
 + (NSString *)appVersionNumber
 {
     return [NSString stringWithFormat:@"%@b%@", 
