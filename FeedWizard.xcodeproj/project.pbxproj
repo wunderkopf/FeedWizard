@@ -857,6 +857,7 @@
 		D9C03CE1140E6E4700B828EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Growl 1.2.2 SDK/Frameworks\"",
@@ -866,6 +867,7 @@
 				GCC_PREFIX_HEADER = "FeedWizard/FeedWizard-Prefix.pch";
 				INFOPLIST_FILE = "FeedWizard/FeedWizard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -873,6 +875,7 @@
 		D9C03CE2140E6E4700B828EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Growl 1.2.2 SDK/Frameworks\"",
@@ -882,6 +885,7 @@
 				GCC_PREFIX_HEADER = "FeedWizard/FeedWizard-Prefix.pch";
 				INFOPLIST_FILE = "FeedWizard/FeedWizard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
