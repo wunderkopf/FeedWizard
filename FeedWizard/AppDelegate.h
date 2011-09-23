@@ -27,5 +27,7 @@
 - (IBAction)doMarkAllAsRead:(id)sender;
 
 + (NSString *)appVersionNumber;
++ (NSImage *)logoWithFeedIdentifier:(NSString *)identifier;
++ (void)addLogoWithIdentifier:(NSString *)identifier;
 
 @end

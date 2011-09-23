@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MainWindowController.h"
 #import "PreferencesWindowController.h"
-#import "Storage.h"
+#import "NSImage+Extensions.h"
 
 NSString * const FeedDidEndRefreshNotification = @"FeedDidEndRefreshNotification";
 NSString * const ReloadDataNotification = @"ReloadDataNotification";
@@ -45,10 +45,6 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender 
 {
-    /*    if ([[Storage sharedStorage] close])
-     return NSTerminateNow;
-     else
-     return NSTerminateCancel;*/
     return NSTerminateNow;
 }
 
@@ -182,6 +178,58 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
     return [NSString stringWithFormat:@"%@b%@", 
             [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], 
             [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"]];
+}
+
++ (NSURL *)applicationFilesDirectory 
+{    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *libraryURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+    return [libraryURL URLByAppendingPathComponent:@"FeedWizard"];
+}
+
++ (NSURL *)imagesFilesDirectory 
+{    
+    return [[self applicationFilesDirectory] URLByAppendingPathComponent:@"Images"];
+}
+
++ (NSImage *)logoWithFeedIdentifier:(NSString *)identifier
+{
+    NSMutableString *name = [NSMutableString stringWithString:identifier];
+    [name appendString:@".png"];
+    NSURL *path = [[self imagesFilesDirectory] URLByAppendingPathComponent:name];
+    // TODO: error checking
+    NSError *error = nil;
+    if ([path checkResourceIsReachableAndReturnError:&error])
+        return [[NSImage alloc] initWithContentsOfURL:path];
+    
+    return [NSImage imageNamed:@"feed-default"];
+}
+
++ (void)addLogoWithIdentifier:(NSString *)identifier
+{
+    if ([identifier length] > 0)
+    {
+        NSMutableString *name = [NSMutableString stringWithString:identifier];
+        [name appendString:@".png"];
+        
+        NSURL *path = [[self imagesFilesDirectory] URLByAppendingPathComponent:name];
+        // TODO: error checking
+        NSError *error = nil;
+        if (![path checkResourceIsReachableAndReturnError:&error])
+        {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [NSNumber numberWithBool:YES], NSFileExtensionHidden, nil];
+            NSURL *imagesFilesDirectory = [self imagesFilesDirectory];
+            [fileManager createDirectoryAtPath:[imagesFilesDirectory path] 
+                   withIntermediateDirectories:YES attributes:attributes error:&error];
+            
+            PSFeed *feed = [[PSClient applicationClient] feedWithIdentifier:identifier];
+            NSURL *faviconURL = [NSURL URLWithString: @"/favicon.ico" relativeToURL:feed.alternateURL];
+            NSImage *logo = [[NSImage alloc] initWithContentsOfURL:faviconURL];
+            [logo saveAsPNGWithName:name atURL:[self imagesFilesDirectory]];
+        }
+    }
 }
 
 @end
