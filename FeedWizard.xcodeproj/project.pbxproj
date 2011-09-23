@@ -47,13 +47,9 @@
 		D99BE4B7140FB3C10016120F /* MainWindowController-PXSourceListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4B5140FB3C10016120F /* MainWindowController-PXSourceListDataSource.m */; };
 		D99BE4B8140FB3C10016120F /* MainWindowController-PXSourceListDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4B6140FB3C10016120F /* MainWindowController-PXSourceListDelegate.m */; };
 		D99BE4BB140FB6570016120F /* SheetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4BA140FB6560016120F /* SheetWindowController.m */; };
-		D99BE4BF140FB7C00016120F /* GoogleReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4BE140FB7C00016120F /* GoogleReader.m */; };
 		D99BE4C2140FBB330016120F /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = D99BE4C1140FBB330016120F /* note.png */; };
 		D99BE4C4140FBB9A0016120F /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = D99BE4C3140FBB9A0016120F /* star.png */; };
 		D99BE4C6140FBBE80016120F /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = D99BE4C5140FBBE70016120F /* rss.png */; };
-		D99BE4CE140FBF080016120F /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4CD140FBF080016120F /* LoginWindowController.m */; };
-		D99BE4D1140FC1910016120F /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99BE4CF140FC1910016120F /* LoginWindow.xib */; };
-		D99BE4D4140FCFA70016120F /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = D99BE4D3140FCFA70016120F /* Storage.m */; };
 		D99C5E6D1427617B00E53074 /* rss-preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C5E6C1427617B00E53074 /* rss-preferences.png */; };
 		D9A9FA32141A030D0096951F /* SubscribeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A9FA31141A030D0096951F /* SubscribeWindowController.m */; };
 		D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A9FA33141A032E0096951F /* SubscribeWindow.xib */; };
@@ -64,7 +60,6 @@
 		D9C03CD4140E6E4700B828EB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CD2140E6E4700B828EB /* Credits.rtf */; };
 		D9C03CD7140E6E4700B828EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CD6140E6E4700B828EB /* AppDelegate.m */; };
 		D9C03CDA140E6E4700B828EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CD8140E6E4700B828EB /* MainMenu.xib */; };
-		D9C03CDD140E6E4700B828EB /* FeedWizard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CDB140E6E4700B828EB /* FeedWizard.xcdatamodeld */; };
 		D9C03CEA140E71C700B828EB /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C03CE9140E71C700B828EB /* MainWindowController.m */; };
 		D9C03CED140E729C00B828EB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C03CEB140E729C00B828EB /* MainWindow.xib */; };
 		D9C5E452141F427E007A38B3 /* fw.icns in Resources */ = {isa = PBXBuildFile; fileRef = D9C5E451141F427E007A38B3 /* fw.icns */; };
@@ -157,7 +152,6 @@
 		D98512411420E8870040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/EntrySettingsWindow.xib; sourceTree = "<group>"; };
 		D98512421420E88E0040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/FeedSettingsWindow.xib; sourceTree = "<group>"; };
 		D98512431420E8940040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/SubscribeWindow.xib; sourceTree = "<group>"; };
-		D98512441420E89A0040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/LoginWindow.xib; sourceTree = "<group>"; };
 		D98512451420E8A20040103D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D98512491420E8F80040103D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D985124B1420E8FC0040103D /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/SubscribeWindowController.h; sourceTree = "<group>"; };
@@ -185,16 +179,9 @@
 		D99BE4B6140FB3C10016120F /* MainWindowController-PXSourceListDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MainWindowController-PXSourceListDelegate.m"; sourceTree = "<group>"; };
 		D99BE4B9140FB6560016120F /* SheetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheetWindowController.h; sourceTree = "<group>"; };
 		D99BE4BA140FB6560016120F /* SheetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SheetWindowController.m; sourceTree = "<group>"; };
-		D99BE4BD140FB7C00016120F /* GoogleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleReader.h; sourceTree = "<group>"; };
-		D99BE4BE140FB7C00016120F /* GoogleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleReader.m; sourceTree = "<group>"; };
 		D99BE4C1140FBB330016120F /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 		D99BE4C3140FBB9A0016120F /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		D99BE4C5140FBBE70016120F /* rss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rss.png; sourceTree = "<group>"; };
-		D99BE4CC140FBF080016120F /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
-		D99BE4CD140FBF080016120F /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
-		D99BE4D0140FC1910016120F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LoginWindow.xib; sourceTree = "<group>"; };
-		D99BE4D2140FCFA70016120F /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
-		D99BE4D3140FCFA70016120F /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		D99C5E6C1427617B00E53074 /* rss-preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-preferences.png"; sourceTree = "<group>"; };
 		D9A9FA31141A030D0096951F /* SubscribeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeWindowController.m; sourceTree = "<group>"; };
 		D9A9FA34141A032E0096951F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubscribeWindow.xib; sourceTree = "<group>"; };
@@ -213,7 +200,6 @@
 		D9C03CD5140E6E4700B828EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D9C03CD6140E6E4700B828EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D9C03CD9140E6E4700B828EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D9C03CDC140E6E4700B828EB /* FeedWizard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedWizard.xcdatamodel; sourceTree = "<group>"; };
 		D9C03CE8140E71C700B828EB /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		D9C03CE9140E71C700B828EB /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		D9C03CEC140E729C00B828EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
@@ -226,7 +212,6 @@
 		D9CF609F142387120011419E /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		D9CF60A0142387120011419E /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		D9CF60A3142387350011419E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
-		D9CF60A6142388D90011419E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +229,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D93AEF9E142B7314008726B1 /* Navigation Table View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Navigation Table View";
+			sourceTree = "<group>";
+		};
 		D9457ADC1418F6CA008D59B9 /* Subprojects */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +329,8 @@
 		D995381C141F8A2400E2477E /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				D93AEF9E142B7314008726B1 /* Navigation Table View */,
+				D983738B1417515500321CA9 /* Source List Items */,
 				D985123D1420E19F0040103D /* NotifyController.h */,
 				D985123E1420E19F0040103D /* NotifyController.m */,
 				D9457A9B1418DCBC008D59B9 /* Entry.h */,
@@ -357,16 +351,6 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
-		D99BE4A0140FAA060016120F /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-				D99BE4D2140FCFA70016120F /* Storage.h */,
-				D99BE4D3140FCFA70016120F /* Storage.m */,
-				D9C03CDB140E6E4700B828EB /* FeedWizard.xcdatamodeld */,
-			);
-			name = "Core Data";
-			sourceTree = "<group>";
-		};
 		D99BE4A8140FB1E40016120F /* PXSourceList */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,15 +360,6 @@
 				D99BE4AC140FB1E40016120F /* PXSourceListDelegate.h */,
 			);
 			path = PXSourceList;
-			sourceTree = "<group>";
-		};
-		D99BE4BC140FB7A00016120F /* Google Reader */ = {
-			isa = PBXGroup;
-			children = (
-				D99BE4BD140FB7C00016120F /* GoogleReader.h */,
-				D99BE4BE140FB7C00016120F /* GoogleReader.m */,
-			);
-			name = "Google Reader";
 			sourceTree = "<group>";
 		};
 		D99BE4C0140FBB180016120F /* Images */ = {
@@ -401,16 +376,6 @@
 				D99BE4C1140FBB330016120F /* note.png */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		D99BE4CB140FBE890016120F /* Login Window */ = {
-			isa = PBXGroup;
-			children = (
-				D99BE4CC140FBF080016120F /* LoginWindowController.h */,
-				D99BE4CD140FBF080016120F /* LoginWindowController.m */,
-				D99BE4CF140FC1910016120F /* LoginWindow.xib */,
-			);
-			name = "Login Window";
 			sourceTree = "<group>";
 		};
 		D9A9FA061419F8C30096951F /* Subscribe Window */ = {
@@ -480,13 +445,10 @@
 				D9C03CCA140E6E4700B828EB /* Supporting Files */,
 				D9CF609E142386E80011419E /* Preferences Window */,
 				D995381C141F8A2400E2477E /* Misc */,
-				D99BE4BC140FB7A00016120F /* Google Reader */,
 				D983738714174DCA00321CA9 /* Feed Controller */,
-				D99BE4A0140FAA060016120F /* Core Data */,
 				D99537EF141F716F00E2477E /* Entry Settings Window */,
 				D9B5D660141A34E200E57378 /* Feed Settings Window */,
 				D9A9FA061419F8C30096951F /* Subscribe Window */,
-				D99BE4CB140FBE890016120F /* Login Window */,
 				D9C03CE7140E716300B828EB /* Main Window */,
 				D9C03CD5140E6E4700B828EB /* AppDelegate.h */,
 				D9C03CD6140E6E4700B828EB /* AppDelegate.m */,
@@ -513,7 +475,6 @@
 		D9C03CE7140E716300B828EB /* Main Window */ = {
 			isa = PBXGroup;
 			children = (
-				D983738B1417515500321CA9 /* Source List Items */,
 				D9C03CE8140E71C700B828EB /* MainWindowController.h */,
 				D9C03CE9140E71C700B828EB /* MainWindowController.m */,
 				D99BE4B5140FB3C10016120F /* MainWindowController-PXSourceListDataSource.m */,
@@ -620,7 +581,6 @@
 				D99BE4C2140FBB330016120F /* note.png in Resources */,
 				D99BE4C4140FBB9A0016120F /* star.png in Resources */,
 				D99BE4C6140FBBE80016120F /* rss.png in Resources */,
-				D99BE4D1140FC1910016120F /* LoginWindow.xib in Resources */,
 				D983739F1417A4ED00321CA9 /* feed-default.png in Resources */,
 				D9A9FA35141A032E0096951F /* SubscribeWindow.xib in Resources */,
 				D98512501420EA3B0040103D /* article.html in Resources */,
@@ -662,16 +622,12 @@
 			files = (
 				D9C03CD0140E6E4700B828EB /* main.m in Sources */,
 				D9C03CD7140E6E4700B828EB /* AppDelegate.m in Sources */,
-				D9C03CDD140E6E4700B828EB /* FeedWizard.xcdatamodeld in Sources */,
 				D9C03CEA140E71C700B828EB /* MainWindowController.m in Sources */,
 				D99BE4AD140FB1E40016120F /* PXSourceList.m in Sources */,
 				D99BE4B0140FB21E0016120F /* SourceListItem.m in Sources */,
 				D99BE4B7140FB3C10016120F /* MainWindowController-PXSourceListDataSource.m in Sources */,
 				D99BE4B8140FB3C10016120F /* MainWindowController-PXSourceListDelegate.m in Sources */,
 				D99BE4BB140FB6570016120F /* SheetWindowController.m in Sources */,
-				D99BE4BF140FB7C00016120F /* GoogleReader.m in Sources */,
-				D99BE4CE140FBF080016120F /* LoginWindowController.m in Sources */,
-				D99BE4D4140FCFA70016120F /* Storage.m in Sources */,
 				D983738A14174DEC00321CA9 /* FeedController.m in Sources */,
 				D983738E1417519500321CA9 /* StuffSourceListItem.m in Sources */,
 				D98373911417567100321CA9 /* FeedsSourceListItem.m in Sources */,
@@ -734,15 +690,6 @@
 			name = EntrySettingsWindow.xib;
 			sourceTree = "<group>";
 		};
-		D99BE4CF140FC1910016120F /* LoginWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D99BE4D0140FC1910016120F /* en */,
-				D98512441420E89A0040103D /* uk */,
-			);
-			name = LoginWindow.xib;
-			sourceTree = "<group>";
-		};
 		D9A9FA33141A032E0096951F /* SubscribeWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -756,7 +703,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9C03CCD140E6E4700B828EB /* en */,
-				D9CF60A6142388D90011419E /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -912,19 +858,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D9C03CDB140E6E4700B828EB /* FeedWizard.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D9C03CDC140E6E4700B828EB /* FeedWizard.xcdatamodel */,
-			);
-			currentVersion = D9C03CDC140E6E4700B828EB /* FeedWizard.xcdatamodel */;
-			path = FeedWizard.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D9C03CB6140E6E4600B828EB /* Project object */;
 }
