@@ -7,7 +7,7 @@
 //
 
 #import "Entry.h"
-#import "Storage.h"
+#import "AppDelegate.h"
 
 @implementation Entry
 
@@ -89,7 +89,7 @@
 
 - (NSImage *)feedLogo
 {
-    return [[Storage sharedStorage] logoWithFeedIdentifier:_entry.feed.identifier];
+    return [AppDelegate logoWithFeedIdentifier:_entry.feed.identifier];
 }
 
 - (NSString *)summary
