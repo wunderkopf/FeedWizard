@@ -8,7 +8,7 @@
 
 #import "FeedSourceListItem.h"
 #import "Entry.h"
-#import "Storage.h"
+#import "AppDelegate.h"
 
 @implementation FeedSourceListItem
 
@@ -77,7 +77,7 @@
 
 - (NSImage *)icon
 {
-    return [[Storage sharedStorage] logoWithFeedIdentifier:_feed.identifier];
+    return [AppDelegate logoWithFeedIdentifier:_feed.identifier];
 }
 
 @end
