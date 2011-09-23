@@ -10,9 +10,7 @@
 #import "SourceListItem.h"
 #import "FeedsSourceListItem.h"
 #import "Entry.h"
-//#import <OAuthConsumer/OAuthConsumer.h>
-//#import "GGReadability.h"
-#import "Storage.h"
+#import "AppDelegate.h"
 
 @implementation MainWindowController (NSTableViewDelegate)
 
@@ -54,7 +52,7 @@
     
     [[_webView mainFrame] loadHTMLString:articleText baseURL:entry.baseURL];
 
-    [[Storage sharedStorage] addLogoWithIdentifier:entry.entry.feed.identifier];
+    [AppDelegate addLogoWithIdentifier:entry.entry.feed.identifier];
     
     if (![entry isRead])
         [entry setRead:YES];
