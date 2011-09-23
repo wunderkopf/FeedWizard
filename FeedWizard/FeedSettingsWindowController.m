@@ -7,7 +7,8 @@
 //
 
 #import "FeedSettingsWindowController.h"
-#import "Storage.h"
+#import "AppDelegate.h"
+
 @implementation FeedSettingsWindowController
 
 @synthesize saveButton = _saveButton;
@@ -31,7 +32,7 @@
 - (IBAction)doShowSheet:(id)sender
 {
     [super doShowSheet:sender];
-    _feedImageView.image = [[Storage sharedStorage] logoWithFeedIdentifier:_feed.identifier];
+    _feedImageView.image = [AppDelegate logoWithFeedIdentifier:_feed.identifier];
     if (_feed.feedFormat == PSAtomFormat)
         _feedTypeImageView.image = [NSImage imageNamed:@"atom-feed"];
     else
