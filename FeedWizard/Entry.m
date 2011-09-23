@@ -12,7 +12,7 @@
 @implementation Entry
 
 @synthesize entry = _entry;
-@synthesize flagged;
+//@synthesize flagged;
 
 - (id)init
 {

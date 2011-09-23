@@ -21,7 +21,7 @@
 @property (getter = isRead, setter = setRead:) BOOL read;
 @property (readonly, assign) NSString *feedTitle;
 @property (readonly, assign) NSImage *feedLogo;
-@property (assign) BOOL flagged;
+@property (getter = flagged, setter = setFlagged:) BOOL flagged;
 @property (readonly, assign) NSString *summary;
 
 + (id)itemWithEntry:(PSEntry *)entry;
