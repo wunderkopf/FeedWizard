@@ -27,8 +27,15 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
     
     if (self != nil) 
     {
-        NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *logPath = [libraryPath stringByAppendingPathComponent:@"Logs/FeedWizard.log"];
+        NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *logPath = [libraryPath stringByAppendingPathComponent:@"FeedWizard/Logs"];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error = nil;
+        NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSFileExtensionHidden, nil];
+        [fileManager createDirectoryAtPath:logPath withIntermediateDirectories:YES attributes:attributes error:&error];
+        logPath = [logPath stringByAppendingPathComponent:@"FeedWizard.log"];
+        
         freopen([logPath fileSystemRepresentation], "a", stderr);
         
         PSClient *client = [PSClient applicationClient];
