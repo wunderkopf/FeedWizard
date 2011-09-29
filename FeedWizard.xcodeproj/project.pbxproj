@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D90ADE9814347C7E008225FF /* history.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D90ADE9714347C7E008225FF /* history.rtf */; };
 		D9457A971418C65A008D59B9 /* MainWindowController-PSClientDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9457A961418C65A008D59B9 /* MainWindowController-PSClientDelegate.m */; };
 		D9457A9A1418CC72008D59B9 /* AllSourceListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9457A991418CC72008D59B9 /* AllSourceListItem.m */; };
 		D9457A9D1418DCBD008D59B9 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = D9457A9C1418DCBD008D59B9 /* Entry.m */; };
@@ -103,6 +104,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D90ADE9714347C7E008225FF /* history.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = history.rtf; sourceTree = "<group>"; };
 		D9267C571429F15A004CC2E6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		D9457A961418C65A008D59B9 /* MainWindowController-PSClientDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MainWindowController-PSClientDelegate.m"; sourceTree = "<group>"; };
 		D9457A981418CC72008D59B9 /* AllSourceListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllSourceListItem.h; path = FeedWizard/AllSourceListItem.h; sourceTree = SOURCE_ROOT; };
@@ -460,6 +462,7 @@
 		D9C03CCA140E6E4700B828EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D90ADE9714347C7E008225FF /* history.rtf */,
 				D99BE4C0140FBB180016120F /* Images */,
 				D9C03CCB140E6E4700B828EB /* FeedWizard-Info.plist */,
 				D9C03CCC140E6E4700B828EB /* InfoPlist.strings */,
@@ -593,6 +596,7 @@
 				D98512481420E8F80040103D /* Localizable.strings in Resources */,
 				D9CF60A4142387350011419E /* PreferencesWindow.xib in Resources */,
 				D99C5E6D1427617B00E53074 /* rss-preferences.png in Resources */,
+				D90ADE9814347C7E008225FF /* history.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
