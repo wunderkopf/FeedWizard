@@ -54,7 +54,21 @@
     }
     PSFeed *feed = [client addFeedWithURL:[NSURL URLWithString:urlString]];
     
+    // For some feeds it is a problem - do it in background
+    [_waitProgressIndicator stopAnimation:sender];
+    [_waitProgressIndicator setHidden:YES];
+    _urlTextField.stringValue = @"";
+    [_urlTextField setHidden:NO];
+    [_subscribeButton setEnabled:NO];
+    [_subscribeButton setHidden:NO];
+    [_subscriptionTextField setHidden:NO];
+    [_cancelButton setHidden:NO];
     NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
+    [self doCloseSheet:nil];
+    //
+    
+/*    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
     _refreshNotification = [notifyCenter addObserverForName:PSFeedRefreshingNotification object:feed queue:_feedQueue usingBlock:^(NSNotification *arg1) {
         
         if ([feed isRefreshing])
@@ -81,7 +95,7 @@
             [notifyCenter postNotificationName:FeedDidEndRefreshNotification object:feed];
             [self doCloseSheet:nil];
         }];
-    }];
+    }];*/
 }
 
 @end
