@@ -38,6 +38,7 @@
     {
         [_emptyEntryView setFrame:[[self rightPane] bounds]];
         [[[self rightPane] animator] replaceSubview:_webView with:_emptyEntryView];
+        [[_webView mainFrame] loadHTMLString:_emptyArticleText baseURL:nil]; 
         Debug(@"After changing to web view we have %lu subviews.", [[[self rightPane] subviews] count]);
     }
 }

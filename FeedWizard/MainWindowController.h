@@ -32,6 +32,7 @@
     SubscribeWindowController *_subscribeWindowController;
     NSMenu *_feedMenu;
     NSString *_articleText;
+    NSString *_emptyArticleText;
     AMButtonBar *_displayModeButtonBar;
     FeedSettingsWindowController *_feedSettingsWindowController;
     EntrySettingsWindowController *_entrySettingsWindowController;

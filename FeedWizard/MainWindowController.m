@@ -80,6 +80,10 @@ NSString * const kUserAgentValue = @"FeedWizard/1.0.0";
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"article" ofType:@"html"];
         NSData *articleData = [NSData dataWithContentsOfFile:filePath];
         _articleText = [[NSString alloc] initWithData:articleData encoding:NSStringEncodingConversionAllowLossy];
+
+        filePath = [[NSBundle mainBundle] pathForResource:@"empty" ofType:@"html"];
+        articleData = [NSData dataWithContentsOfFile:filePath];
+        _emptyArticleText = [[NSString alloc] initWithData:articleData encoding:NSStringEncodingConversionAllowLossy];
         
         _navigationItems = [[NSMutableArray alloc] init];
         

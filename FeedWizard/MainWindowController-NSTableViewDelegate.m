@@ -19,13 +19,6 @@
     NSArray *selectedObjects = [_entryArrayController selectedObjects];
     
     Entry *entry = [selectedObjects firstObject];
-    
-    if ([[self rightPane] superview] != _webView)
-    {
-        [_webView setFrame:[[self rightPane] bounds]];
-        [[[self rightPane] animator] replaceSubview:_emptyEntryView with:_webView];
-        Debug(@"After changing to empty view we have %lu subviews.", [[[self rightPane] subviews] count]);
-    }
 
     NSString *articleText = [NSString string];
     if ([entry.titleForDisplay length] > 0)
@@ -56,6 +49,13 @@
     
     if (![entry isRead])
         [entry setRead:YES];
+    
+    if ([[self rightPane] superview] != _webView)
+    {
+        [_webView setFrame:[[self rightPane] bounds]];
+        [[[self rightPane] animator] replaceSubview:_emptyEntryView with:_webView];
+        Debug(@"After changing to empty view we have %lu subviews.", [[[self rightPane] subviews] count]);
+    }
 }
 
 - (NSMenu *)tableView:(NSTableView *)tableView menuForEvent:(NSEvent *)event
