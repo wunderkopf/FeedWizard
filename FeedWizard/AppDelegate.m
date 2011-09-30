@@ -234,6 +234,8 @@ NSString * const OptDoNotAskAboutDefaultReader = @"DoNotAskAboutDefaultReader";
             PSFeed *feed = [[PSClient applicationClient] feedWithIdentifier:identifier];
             NSURL *faviconURL = [NSURL URLWithString: @"/favicon.ico" relativeToURL:feed.alternateURL];
             NSImage *logo = [[NSImage alloc] initWithContentsOfURL:faviconURL];
+            if (logo == nil)
+                logo = [NSImage imageNamed:@"feed-default"];
             [logo saveAsPNGWithName:name atURL:[self imagesFilesDirectory]];
         }
     }
