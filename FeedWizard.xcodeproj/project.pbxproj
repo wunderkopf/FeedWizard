@@ -70,6 +70,7 @@
 		D9CF2B66141F57760014B36A /* rss-feed.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2B65141F57760014B36A /* rss-feed.png */; };
 		D9CF60A1142387120011419E /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CF60A0142387120011419E /* PreferencesWindowController.m */; };
 		D9CF60A4142387350011419E /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CF60A2142387350011419E /* PreferencesWindow.xib */; };
+		D9E6D0661435AEF000A35DA6 /* empty.html in Resources */ = {isa = PBXBuildFile; fileRef = D9E6D0651435AEF000A35DA6 /* empty.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +215,7 @@
 		D9CF609F142387120011419E /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		D9CF60A0142387120011419E /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		D9CF60A3142387350011419E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
+		D9E6D0651435AEF000A35DA6 /* empty.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = empty.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +473,7 @@
 				D9C03CD2140E6E4700B828EB /* Credits.rtf */,
 				D98512511420EA3B0040103D /* article.html */,
 				D985124A1420E8F80040103D /* Localizable.strings */,
+				D9E6D0651435AEF000A35DA6 /* empty.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				D9CF60A4142387350011419E /* PreferencesWindow.xib in Resources */,
 				D99C5E6D1427617B00E53074 /* rss-preferences.png in Resources */,
 				D90ADE9814347C7E008225FF /* history.rtf in Resources */,
+				D9E6D0661435AEF000A35DA6 /* empty.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
